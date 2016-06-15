@@ -10,9 +10,7 @@
 		9A2A89021D107B7900D0E59A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A89011D107B7900D0E59A /* main.m */; };
 		9A2A89051D107B7900D0E59A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A89041D107B7900D0E59A /* AppDelegate.m */; };
 		9A2A89081D107B7900D0E59A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A89071D107B7900D0E59A /* ViewController.m */; };
-		9A2A890B1D107B7900D0E59A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A2A89091D107B7900D0E59A /* Main.storyboard */; };
 		9A2A890D1D107B7900D0E59A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A2A890C1D107B7900D0E59A /* Assets.xcassets */; };
-		9A2A89101D107B7900D0E59A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A2A890E1D107B7900D0E59A /* LaunchScreen.storyboard */; };
 		9A2A891B1D107B7900D0E59A /* CYLLocalNotificationDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A891A1D107B7900D0E59A /* CYLLocalNotificationDemoTests.m */; };
 		9A2A89261D107B7900D0E59A /* CYLLocalNotificationDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A89251D107B7900D0E59A /* CYLLocalNotificationDemoUITests.m */; };
 /* End PBXBuildFile section */
@@ -41,9 +39,7 @@
 		9A2A89041D107B7900D0E59A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9A2A89061D107B7900D0E59A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9A2A89071D107B7900D0E59A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9A2A890A1D107B7900D0E59A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A2A890C1D107B7900D0E59A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9A2A890F1D107B7900D0E59A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A2A89111D107B7900D0E59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A2A89161D107B7900D0E59A /* CYLLocalNotificationDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CYLLocalNotificationDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2A891A1D107B7900D0E59A /* CYLLocalNotificationDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYLLocalNotificationDemoTests.m; sourceTree = "<group>"; };
@@ -105,9 +101,7 @@
 				9A2A89041D107B7900D0E59A /* AppDelegate.m */,
 				9A2A89061D107B7900D0E59A /* ViewController.h */,
 				9A2A89071D107B7900D0E59A /* ViewController.m */,
-				9A2A89091D107B7900D0E59A /* Main.storyboard */,
 				9A2A890C1D107B7900D0E59A /* Assets.xcassets */,
-				9A2A890E1D107B7900D0E59A /* LaunchScreen.storyboard */,
 				9A2A89111D107B7900D0E59A /* Info.plist */,
 				9A2A89001D107B7900D0E59A /* Supporting Files */,
 			);
@@ -252,9 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A2A89101D107B7900D0E59A /* LaunchScreen.storyboard in Resources */,
 				9A2A890D1D107B7900D0E59A /* Assets.xcassets in Resources */,
-				9A2A890B1D107B7900D0E59A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,25 +307,6 @@
 			targetProxy = 9A2A89221D107B7900D0E59A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		9A2A89091D107B7900D0E59A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9A2A890A1D107B7900D0E59A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9A2A890E1D107B7900D0E59A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9A2A890F1D107B7900D0E59A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9A2A89281D107B7900D0E59A /* Debug */ = {
@@ -428,6 +401,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CYLLocalNotificationDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLLocalNotificationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,6 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CYLLocalNotificationDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLLocalNotificationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,6 +486,7 @@
 				9A2A892C1D107B7900D0E59A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A2A892D1D107B7900D0E59A /* Build configuration list for PBXNativeTarget "CYLLocalNotificationDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +495,7 @@
 				9A2A892F1D107B7900D0E59A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A2A89301D107B7900D0E59A /* Build configuration list for PBXNativeTarget "CYLLocalNotificationDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +504,7 @@
 				9A2A89321D107B7900D0E59A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

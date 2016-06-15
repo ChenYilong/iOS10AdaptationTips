@@ -5,30 +5,38 @@
 //  Created by 陈宜龙 ( https://github.com/ChenYilong ) on  6/15/16.
 //  Copyright © 2016 微博@iOS程序犭袁 ( http://weibo.com/luohanchenyilong ). All rights reserved.
 //
-
 #import "ViewController.h"
+
+#define XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8 __has_include(<UserNotifications/UserNotifications.h>)
+
 /// 1. import UserNotifications
 //@import Foundation;
 //推送通知从Foundation独立出来，成为一个独立的框架。必须导入
+#if XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8
 @import UserNotifications;
+#endif
 
 @implementation ViewController
+
 - (IBAction)buttonClicked:(id)sender {
     CGFloat systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
     /// 2. request authorization for localNotification
-    if (systemVersion >= 8.f && systemVersion <10.f)  {
+    if (systemVersion >= 8.f && systemVersion < 10.f)  {
         UIUserNotificationSettings *userNotificationSettings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge)
                                                                                                  categories:nil];
         UIApplication *application = [UIApplication sharedApplication];
         [application registerUserNotificationSettings:userNotificationSettings];
     } else if (systemVersion >= 10.f) {
+#if XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert)
                               completionHandler:^(BOOL granted, NSError * _Nullable error) {
                                   if (!error) {
-                                      NSLog(@"request   succeeded!");
+                                      NSLog(@"request authorization succeeded!");
+                                      [self showAlert];
                                   }
                               }];
+#endif
     }
     
     /// 3. schedule localNotification
@@ -39,16 +47,18 @@
         localNotification.alertBody = @"Hello Tom！Get up, let's play with Jerry!";
         localNotification.alertAction = @"play with Jerry";
         //Identifies the image used as the launch image when the user taps (or slides) the action button (or slider).
-        localNotification.alertLaunchImage = @"any string is ok,such as 微博@iOS程序犭袁";
+        localNotification.alertLaunchImage = @"LaunchImage.png";
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        //repeat evey minute
-        localNotification.repeatInterval = NSCalendarUnitMinute;
+        //repeat evey minute,  0 means don't repeat
+        localNotification.repeatInterval = 0;
         
         /// 4. update application icon badge number
         localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        return;
+        [self showAlert];
     } else {
+#if XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8
+        
         //        //Deliver the notification at 08:30 everyday
         //        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
         //        dateComponents.hour = 8;
@@ -69,16 +79,18 @@
                                                       triggerWithTimeInterval:5.f repeats:NO];
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"FiveSecond"
                                                                               content:content trigger:trigger];
-        // Schedule the notification.
+        /// 3. schedule localNotification
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
             if (!error) {
-                NSLog(@"user tapped (or slided) the action button (or slider)");
+                NSLog(@"add NotificationRequest succeeded!");
             }
         }];
+#endif
     }
-    
-    //如果是测试状态(不是从AppStore下载的版本,与服务器是正式还是测试无关)，则进行如下操作
+}
+
+- (void)showAlert {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"please enter background now" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
     [alert show];
     int delayInSeconds = 1;
@@ -86,12 +98,28 @@
     dispatch_after(when, dispatch_get_main_queue(), ^{
         [alert dismissWithClickedButtonIndex:0 animated:YES];
     });
-
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.backgroundColor = [UIColor colorWithRed:(51) / 255.f green:(171) / 255.f blue:(160) / 255.f alpha:1.f];
+    button.frame = ({
+        CGRect frame = button.frame;
+        frame.size.width = [UIScreen mainScreen].bounds.size.width;
+        frame.size.height = 40;
+        frame;
+    });
+    button.center = CGPointMake([UIScreen mainScreen].bounds.size.width * .5, [UIScreen mainScreen].bounds.size.height * .5);
+    button.layer.shadowColor = [UIColor grayColor].CGColor;
+    button.layer.cornerRadius = 3.0;
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [button setTitle:@"Click me to schedule localNotification" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
+    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
 @end
