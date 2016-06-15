@@ -2,16 +2,21 @@
 //  ViewController.m
 //  CYLLocalNotificationDemo
 //
-//  Created by 陈宜龙 ( https://github.com/ChenYilong ) on  6/15/16.
+//  Created by Elon Chan 陈宜龙 ( https://github.com/ChenYilong ) on  6/15/16.
 //  Copyright © 2016 微博@iOS程序犭袁 ( http://weibo.com/luohanchenyilong ). All rights reserved.
 //
 #import "ViewController.h"
 
-#define XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8 __has_include(<UserNotifications/UserNotifications.h>)
+#define XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8    __has_include(<UserNotifications/UserNotifications.h>)
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 /// 1. import UserNotifications
-//@import Foundation;
-//推送通知从Foundation独立出来，成为一个独立的框架。必须导入
+///    推送通知从Foundation独立出来，成为一个独立的框架。必须导入
+///    Notification independence from Foundation
 #if XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8
 @import UserNotifications;
 #endif
@@ -19,14 +24,13 @@
 @implementation ViewController
 
 - (IBAction)buttonClicked:(id)sender {
-    CGFloat systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
     /// 2. request authorization for localNotification
-    if (systemVersion >= 8.f && systemVersion < 10.f)  {
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0") && SYSTEM_VERSION_LESS_THAN(@"10.0"))  {
         UIUserNotificationSettings *userNotificationSettings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge)
                                                                                                  categories:nil];
         UIApplication *application = [UIApplication sharedApplication];
         [application registerUserNotificationSettings:userNotificationSettings];
-    } else if (systemVersion >= 10.f) {
+    } else if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
 #if XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert)
@@ -40,7 +44,7 @@
     }
     
     /// 3. schedule localNotification
-    if (systemVersion < 10.f) {
+    if (SYSTEM_VERSION_LESS_THAN(@"10.0")) {
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5.f];
         localNotification.alertTitle = @"Elon said:";
