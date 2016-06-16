@@ -13,56 +13,55 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let center = UNUserNotificationCenter.current()
+        
+        // create actions
+        let accept = UNNotificationAction.init(identifier: "com.elonchan.yes",
+                                               title: "Accept",
+                                               options: UNNotificationActionOptions.foreground)
+        let decline = UNNotificationAction.init(identifier: "com.elonchan.no",
+                                                title: "Decline",
+                                                options: UNNotificationActionOptions.destructive)
+        let snooze = UNNotificationAction.init(identifier: "com.elonchan.snooze", title: "Snooze", options: UNNotificationActionOptions.destructive)
+        let actions = [ accept, decline, snooze ]
+        
+        // create a category
+        let inviteCategory = UNNotificationCategory(identifier: "com.elonchan.localNotification",
+                                                    actions: actions,
+                                                    minimalActions: actions,
+                                                    intentIdentifiers: [],
+                                                    options: [])
+        
+        // registration
+        center.setNotificationCategories([ inviteCategory ])
+        center.requestAuthorization([.alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization.
+        }
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction  func triggerNotification(){
-        
         let content = UNMutableNotificationContent()
         content.title = NSString.localizedUserNotificationString(forKey: "Elon said:", arguments: nil)
         content.body = NSString.localizedUserNotificationString(forKey: "Hello Tom！Get up, let's play with Jerry!", arguments: nil)
         content.sound = UNNotificationSound.default()
-
+        content.badge = UIApplication.shared().applicationIconBadgeNumber + 1;
+        content.categoryIdentifier = "com.elonchan.localNotification"
         // Deliver the notification in five seconds.
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1.0, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1.0, repeats: true)
         let request = UNNotificationRequest.init(identifier: "FiveSecond", content: content, trigger: trigger)
         
         // Schedule the notification.
         let center = UNUserNotificationCenter.current()
-        center.delegate = self
         center.add(request)
-    
-        
     }
 
     @IBAction func stopNotification(_ sender: AnyObject) {
         let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: ["FiveSecond"])
+        center.removeAllPendingNotificationRequests()
+        // or you can remove specifical notification:
+        // center.removePendingNotificationRequests(withIdentifiers: ["FiveSecond"])
     }
 }
 
-extension ViewController:UNUserNotificationCenterDelegate{
 
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void) {
-        
-        print("Tapped in notification")
-        
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: (UNNotificationPresentationOptions) -> Void) {
-        
-        print("Notification being triggered")
-        //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
-         completionHandler( UNNotificationPresentationOptions.alert)
-        // completionHandler( UNNotificationPresentationOptions.sound)
-        // completionHandler( UNNotificationPresentationOptions.badge)
-        
-    }
-  
-}
