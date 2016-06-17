@@ -118,6 +118,7 @@
     NSLog(@"Notification is triggered");
     [self addLabel:notification.request.identifier backgroundColor:[UIColor blueColor]];
     // You can either present alert, sound or increase badge while the app is in foreground too with iOS 10
+    // Must be called when finished, when you do not want foreground show, pass UNNotificationPresentationOptionNone to the completionHandler()
     completionHandler(UNNotificationPresentationOptionAlert);
     // completionHandler(UNNotificationPresentationOptionBadge);
     // completionHandler(UNNotificationPresentationOptionSound);
@@ -153,6 +154,8 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
             [self addLabel:title backgroundColor:[UIColor redColor]];
         }
     } while (NO);
+    // Must be called when finished
+    completionHandler();
 }
 
 #endif

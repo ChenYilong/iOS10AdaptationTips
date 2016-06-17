@@ -48,7 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 break;
             }
         } while (false);
+        // Must be called when finished
+        completionHandler();
     }
+    
     private func addLabel(title: String, color: UIColor) {
         let label = UILabel.init()
         label.backgroundColor = UIColor.red()
@@ -63,8 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: (UNNotificationPresentationOptions) -> Void) {
         print("Notification being triggered")
-        // You can either present alert, sound or increase badge while the app is in foreground too with iOS 10
-        completionHandler( UNNotificationPresentationOptions.alert)
+        // Must be called when finished, when you do not want foreground show, pass [] to the completionHandler()
+        completionHandler(UNNotificationPresentationOptions.alert)
         // completionHandler( UNNotificationPresentationOptions.sound)
         // completionHandler( UNNotificationPresentationOptions.badge)
     }

@@ -181,6 +181,7 @@ static NSString *const CYLInviteCategoryIdentifier = @"com.elonchan.localNotific
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         // or you can remove specifical local notification:
 //        NSString *specificalIDToCancel = CYLInviteCategoryIdentifier;
+        
 //        UILocalNotification *notificationToCancel = nil;
 //        for(UILocalNotification *aNotif in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
 //            if([[aNotif.userInfo objectForKey:@"CategoryIdentifier"] isEqualToString:specificalIDToCancel]) {
