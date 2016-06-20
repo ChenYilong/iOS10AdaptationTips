@@ -8,12 +8,12 @@ Reference:[**iOS9AdaptationTips**]( https://github.com/ChenYilong/iOS9Adaptation
 
 in iOS10, Several UIKit classes related to notifications are deprecated, such as
 
- 1.UILocalNotification
- 2.UIMutableUserNotificationAction
- 3.UIMutableUserNotificationCategory 
- 4.UIUserNotificationAction
- 5.UIUserNotificationCategory 
- 6.UIUserNotificationSettings
+ 1. UILocalNotification
+ 2. UIMutableUserNotificationAction
+ 3. UIMutableUserNotificationCategory 
+ 4. UIUserNotificationAction
+ 5. UIUserNotificationCategory 
+ 6. UIUserNotificationSettings
 
 Old api also works fine with iOS10, but we had better use the APIs in the User Notifications framework instead.
 
@@ -35,6 +35,7 @@ Someone may have the same question with this guy:
 
 It is impossible for the first question, but local notification may be the best way to help you In terms of waking the app at a certain time, even a certain place. Because LocalNotification is just for scheduling the delivery of local notifications based on specific conditions, such as time or location.
 
+LocalNotification has a limit, you can't trigger a block of code to run when the notification is fired.  You can, however, trigger a block of code to execute with a  [UNNotificationAction](https://developer.apple.com/reference/usernotifications/unnotificationaction) by adding an action to your notification and using `userNotificationCenter(_:didReceive:withCompletionHandler:)` on `UNUserNotificationCenter.currentNotificationCenter()`. That is to say, it's impossiable to run a snippet in background at a certain time, without notifiying user. This feature is limited byond iOS8.
 
 #### schedule the delivery of local notifications based on time
 
@@ -152,6 +153,13 @@ If your iPhone installed Foursquare-app, you will deliver notification when you 
 Signing for Your-Prject-Name requires a development team. Select a development team in the Target Editor.
 Warning: The Copy Bundle Resources build phase contains this target's Info.plist file '/Users/<Your-Prject-Path>/Info.plist'.
 Code signing is required for product type 'Application' in SDK 'iOS 10.0'
+
+
+## ATS
+
+Reference : [***Security and Privacy Enhancements***](https://developer.apple.com/library/prerelease/content/releasenotes/General/WhatsNewIniOS/Articles/iOS10.html#//apple_ref/doc/uid/TP40017084-SW3) 
+
+
 
 #【Chinese】 iOS10适配系列教程
 
