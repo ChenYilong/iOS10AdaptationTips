@@ -1,0 +1,682 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A57D9931D19018900A506A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57D9921D19018900A506A7 /* main.m */; };
+		9A57D9961D19018A00A506A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57D9951D19018A00A506A7 /* AppDelegate.m */; };
+		9A57D9991D19018A00A506A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57D9981D19018A00A506A7 /* ViewController.m */; };
+		9A57D99C1D19018A00A506A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A57D99A1D19018A00A506A7 /* Main.storyboard */; };
+		9A57D99E1D19018A00A506A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A57D99D1D19018A00A506A7 /* Assets.xcassets */; };
+		9A57D9A11D19018A00A506A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A57D99F1D19018A00A506A7 /* LaunchScreen.storyboard */; };
+		9A57D9AC1D19018A00A506A7 /* CYLRichNotificationDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57D9AB1D19018A00A506A7 /* CYLRichNotificationDemoTests.m */; };
+		9A57D9B71D19018A00A506A7 /* CYLRichNotificationDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57D9B61D19018A00A506A7 /* CYLRichNotificationDemoUITests.m */; };
+		9A57D9CB1D1901F400A506A7 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A57D9CA1D1901F400A506A7 /* UserNotifications.framework */; };
+		9A57D9CD1D1901F400A506A7 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A57D9CC1D1901F400A506A7 /* UserNotificationsUI.framework */; };
+		9A57D9D11D1901F400A506A7 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57D9D01D1901F400A506A7 /* NotificationViewController.m */; };
+		9A57D9D41D1901F400A506A7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A57D9D21D1901F400A506A7 /* MainInterface.storyboard */; };
+		9A57D9D81D1901F400A506A7 /* CYLRichNotificationController.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A57D9C81D1901F400A506A7 /* CYLRichNotificationController.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9A57D9A81D19018A00A506A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A57D9861D19018900A506A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A57D98D1D19018900A506A7;
+			remoteInfo = CYLRichNotificationDemo;
+		};
+		9A57D9B31D19018A00A506A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A57D9861D19018900A506A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A57D98D1D19018900A506A7;
+			remoteInfo = CYLRichNotificationDemo;
+		};
+		9A57D9D61D1901F400A506A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A57D9861D19018900A506A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A57D9C71D1901F400A506A7;
+			remoteInfo = CYLRichNotificationController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9A57D9DC1D1901F400A506A7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9A57D9D81D1901F400A506A7 /* CYLRichNotificationController.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9A57D98E1D19018900A506A7 /* CYLRichNotificationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CYLRichNotificationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A57D9921D19018900A506A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9A57D9941D19018900A506A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9A57D9951D19018A00A506A7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9A57D9971D19018A00A506A7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9A57D9981D19018A00A506A7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9A57D99B1D19018A00A506A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9A57D99D1D19018A00A506A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A57D9A01D19018A00A506A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A57D9A21D19018A00A506A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A57D9A71D19018A00A506A7 /* CYLRichNotificationDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CYLRichNotificationDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A57D9AB1D19018A00A506A7 /* CYLRichNotificationDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYLRichNotificationDemoTests.m; sourceTree = "<group>"; };
+		9A57D9AD1D19018A00A506A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A57D9B21D19018A00A506A7 /* CYLRichNotificationDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CYLRichNotificationDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A57D9B61D19018A00A506A7 /* CYLRichNotificationDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYLRichNotificationDemoUITests.m; sourceTree = "<group>"; };
+		9A57D9B81D19018A00A506A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A57D9C81D1901F400A506A7 /* CYLRichNotificationController.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CYLRichNotificationController.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A57D9CA1D1901F400A506A7 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		9A57D9CC1D1901F400A506A7 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		9A57D9CF1D1901F400A506A7 /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		9A57D9D01D1901F400A506A7 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		9A57D9D31D1901F400A506A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		9A57D9D51D1901F400A506A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A57D98B1D19018900A506A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A57D9A41D19018A00A506A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A57D9AF1D19018A00A506A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A57D9C51D1901F400A506A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A57D9CD1D1901F400A506A7 /* UserNotificationsUI.framework in Frameworks */,
+				9A57D9CB1D1901F400A506A7 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A57D9851D19018900A506A7 = {
+			isa = PBXGroup;
+			children = (
+				9A57D9901D19018900A506A7 /* CYLRichNotificationDemo */,
+				9A57D9AA1D19018A00A506A7 /* CYLRichNotificationDemoTests */,
+				9A57D9B51D19018A00A506A7 /* CYLRichNotificationDemoUITests */,
+				9A57D9CE1D1901F400A506A7 /* CYLRichNotificationController */,
+				9A57D9C91D1901F400A506A7 /* Frameworks */,
+				9A57D98F1D19018900A506A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9A57D98F1D19018900A506A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A57D98E1D19018900A506A7 /* CYLRichNotificationDemo.app */,
+				9A57D9A71D19018A00A506A7 /* CYLRichNotificationDemoTests.xctest */,
+				9A57D9B21D19018A00A506A7 /* CYLRichNotificationDemoUITests.xctest */,
+				9A57D9C81D1901F400A506A7 /* CYLRichNotificationController.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A57D9901D19018900A506A7 /* CYLRichNotificationDemo */ = {
+			isa = PBXGroup;
+			children = (
+				9A57D9941D19018900A506A7 /* AppDelegate.h */,
+				9A57D9951D19018A00A506A7 /* AppDelegate.m */,
+				9A57D9971D19018A00A506A7 /* ViewController.h */,
+				9A57D9981D19018A00A506A7 /* ViewController.m */,
+				9A57D99A1D19018A00A506A7 /* Main.storyboard */,
+				9A57D99D1D19018A00A506A7 /* Assets.xcassets */,
+				9A57D99F1D19018A00A506A7 /* LaunchScreen.storyboard */,
+				9A57D9A21D19018A00A506A7 /* Info.plist */,
+				9A57D9911D19018900A506A7 /* Supporting Files */,
+			);
+			path = CYLRichNotificationDemo;
+			sourceTree = "<group>";
+		};
+		9A57D9911D19018900A506A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A57D9921D19018900A506A7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9A57D9AA1D19018A00A506A7 /* CYLRichNotificationDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				9A57D9AB1D19018A00A506A7 /* CYLRichNotificationDemoTests.m */,
+				9A57D9AD1D19018A00A506A7 /* Info.plist */,
+			);
+			path = CYLRichNotificationDemoTests;
+			sourceTree = "<group>";
+		};
+		9A57D9B51D19018A00A506A7 /* CYLRichNotificationDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9A57D9B61D19018A00A506A7 /* CYLRichNotificationDemoUITests.m */,
+				9A57D9B81D19018A00A506A7 /* Info.plist */,
+			);
+			path = CYLRichNotificationDemoUITests;
+			sourceTree = "<group>";
+		};
+		9A57D9C91D1901F400A506A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A57D9CA1D1901F400A506A7 /* UserNotifications.framework */,
+				9A57D9CC1D1901F400A506A7 /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A57D9CE1D1901F400A506A7 /* CYLRichNotificationController */ = {
+			isa = PBXGroup;
+			children = (
+				9A57D9CF1D1901F400A506A7 /* NotificationViewController.h */,
+				9A57D9D01D1901F400A506A7 /* NotificationViewController.m */,
+				9A57D9D21D1901F400A506A7 /* MainInterface.storyboard */,
+				9A57D9D51D1901F400A506A7 /* Info.plist */,
+			);
+			path = CYLRichNotificationController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A57D98D1D19018900A506A7 /* CYLRichNotificationDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A57D9BB1D19018A00A506A7 /* Build configuration list for PBXNativeTarget "CYLRichNotificationDemo" */;
+			buildPhases = (
+				9A57D98A1D19018900A506A7 /* Sources */,
+				9A57D98B1D19018900A506A7 /* Frameworks */,
+				9A57D98C1D19018900A506A7 /* Resources */,
+				9A57D9DC1D1901F400A506A7 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A57D9D71D1901F400A506A7 /* PBXTargetDependency */,
+			);
+			name = CYLRichNotificationDemo;
+			productName = CYLRichNotificationDemo;
+			productReference = 9A57D98E1D19018900A506A7 /* CYLRichNotificationDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9A57D9A61D19018A00A506A7 /* CYLRichNotificationDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A57D9BE1D19018A00A506A7 /* Build configuration list for PBXNativeTarget "CYLRichNotificationDemoTests" */;
+			buildPhases = (
+				9A57D9A31D19018A00A506A7 /* Sources */,
+				9A57D9A41D19018A00A506A7 /* Frameworks */,
+				9A57D9A51D19018A00A506A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A57D9A91D19018A00A506A7 /* PBXTargetDependency */,
+			);
+			name = CYLRichNotificationDemoTests;
+			productName = CYLRichNotificationDemoTests;
+			productReference = 9A57D9A71D19018A00A506A7 /* CYLRichNotificationDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9A57D9B11D19018A00A506A7 /* CYLRichNotificationDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A57D9C11D19018A00A506A7 /* Build configuration list for PBXNativeTarget "CYLRichNotificationDemoUITests" */;
+			buildPhases = (
+				9A57D9AE1D19018A00A506A7 /* Sources */,
+				9A57D9AF1D19018A00A506A7 /* Frameworks */,
+				9A57D9B01D19018A00A506A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A57D9B41D19018A00A506A7 /* PBXTargetDependency */,
+			);
+			name = CYLRichNotificationDemoUITests;
+			productName = CYLRichNotificationDemoUITests;
+			productReference = 9A57D9B21D19018A00A506A7 /* CYLRichNotificationDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		9A57D9C71D1901F400A506A7 /* CYLRichNotificationController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A57D9D91D1901F400A506A7 /* Build configuration list for PBXNativeTarget "CYLRichNotificationController" */;
+			buildPhases = (
+				9A57D9C41D1901F400A506A7 /* Sources */,
+				9A57D9C51D1901F400A506A7 /* Frameworks */,
+				9A57D9C61D1901F400A506A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CYLRichNotificationController;
+			productName = CYLRichNotificationController;
+			productReference = 9A57D9C81D1901F400A506A7 /* CYLRichNotificationController.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9A57D9861D19018900A506A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "陈宜龙";
+				TargetAttributes = {
+					9A57D98D1D19018900A506A7 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Y6X8P44TM5;
+						DevelopmentTeamName = "Meiwei Shuqian(Beijing) Information Technology co., LTD";
+						ProvisioningStyle = Automatic;
+					};
+					9A57D9A61D19018A00A506A7 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Y6X8P44TM5;
+						DevelopmentTeamName = "Meiwei Shuqian(Beijing) Information Technology co., LTD";
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9A57D98D1D19018900A506A7;
+					};
+					9A57D9B11D19018A00A506A7 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Y6X8P44TM5;
+						DevelopmentTeamName = "Meiwei Shuqian(Beijing) Information Technology co., LTD";
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9A57D98D1D19018900A506A7;
+					};
+					9A57D9C71D1901F400A506A7 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Y6X8P44TM5;
+						DevelopmentTeamName = "Meiwei Shuqian(Beijing) Information Technology co., LTD";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9A57D9891D19018900A506A7 /* Build configuration list for PBXProject "CYLRichNotificationDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9A57D9851D19018900A506A7;
+			productRefGroup = 9A57D98F1D19018900A506A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A57D98D1D19018900A506A7 /* CYLRichNotificationDemo */,
+				9A57D9A61D19018A00A506A7 /* CYLRichNotificationDemoTests */,
+				9A57D9B11D19018A00A506A7 /* CYLRichNotificationDemoUITests */,
+				9A57D9C71D1901F400A506A7 /* CYLRichNotificationController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9A57D98C1D19018900A506A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A57D9A11D19018A00A506A7 /* LaunchScreen.storyboard in Resources */,
+				9A57D99E1D19018A00A506A7 /* Assets.xcassets in Resources */,
+				9A57D99C1D19018A00A506A7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A57D9A51D19018A00A506A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A57D9B01D19018A00A506A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A57D9C61D1901F400A506A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A57D9D41D1901F400A506A7 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A57D98A1D19018900A506A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A57D9991D19018A00A506A7 /* ViewController.m in Sources */,
+				9A57D9961D19018A00A506A7 /* AppDelegate.m in Sources */,
+				9A57D9931D19018900A506A7 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A57D9A31D19018A00A506A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A57D9AC1D19018A00A506A7 /* CYLRichNotificationDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A57D9AE1D19018A00A506A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A57D9B71D19018A00A506A7 /* CYLRichNotificationDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A57D9C41D1901F400A506A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A57D9D11D1901F400A506A7 /* NotificationViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A57D9A91D19018A00A506A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A57D98D1D19018900A506A7 /* CYLRichNotificationDemo */;
+			targetProxy = 9A57D9A81D19018A00A506A7 /* PBXContainerItemProxy */;
+		};
+		9A57D9B41D19018A00A506A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A57D98D1D19018900A506A7 /* CYLRichNotificationDemo */;
+			targetProxy = 9A57D9B31D19018A00A506A7 /* PBXContainerItemProxy */;
+		};
+		9A57D9D71D1901F400A506A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A57D9C71D1901F400A506A7 /* CYLRichNotificationController */;
+			targetProxy = 9A57D9D61D1901F400A506A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9A57D99A1D19018A00A506A7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A57D99B1D19018A00A506A7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9A57D99F1D19018A00A506A7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A57D9A01D19018A00A506A7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9A57D9D21D1901F400A506A7 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A57D9D31D1901F400A506A7 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9A57D9B91D19018A00A506A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9A57D9BA1D19018A00A506A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9A57D9BC1D19018A00A506A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CYLRichNotificationDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLRichNotificationDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9A57D9BD1D19018A00A506A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CYLRichNotificationDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLRichNotificationDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9A57D9BF1D19018A00A506A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CYLRichNotificationDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLRichNotificationDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CYLRichNotificationDemo.app/CYLRichNotificationDemo";
+			};
+			name = Debug;
+		};
+		9A57D9C01D19018A00A506A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CYLRichNotificationDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLRichNotificationDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CYLRichNotificationDemo.app/CYLRichNotificationDemo";
+			};
+			name = Release;
+		};
+		9A57D9C21D19018A00A506A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CYLRichNotificationDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLRichNotificationDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CYLRichNotificationDemo;
+			};
+			name = Debug;
+		};
+		9A57D9C31D19018A00A506A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CYLRichNotificationDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLRichNotificationDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CYLRichNotificationDemo;
+			};
+			name = Release;
+		};
+		9A57D9DA1D1901F400A506A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CYLRichNotificationController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLRichNotificationDemo.CYLRichNotificationController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9A57D9DB1D1901F400A506A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CYLRichNotificationController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLRichNotificationDemo.CYLRichNotificationController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A57D9891D19018900A506A7 /* Build configuration list for PBXProject "CYLRichNotificationDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A57D9B91D19018A00A506A7 /* Debug */,
+				9A57D9BA1D19018A00A506A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A57D9BB1D19018A00A506A7 /* Build configuration list for PBXNativeTarget "CYLRichNotificationDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A57D9BC1D19018A00A506A7 /* Debug */,
+				9A57D9BD1D19018A00A506A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9A57D9BE1D19018A00A506A7 /* Build configuration list for PBXNativeTarget "CYLRichNotificationDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A57D9BF1D19018A00A506A7 /* Debug */,
+				9A57D9C01D19018A00A506A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9A57D9C11D19018A00A506A7 /* Build configuration list for PBXNativeTarget "CYLRichNotificationDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A57D9C21D19018A00A506A7 /* Debug */,
+				9A57D9C31D19018A00A506A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9A57D9D91D1901F400A506A7 /* Build configuration list for PBXNativeTarget "CYLRichNotificationController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A57D9DA1D1901F400A506A7 /* Debug */,
+				9A57D9DB1D1901F400A506A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9A57D9861D19018900A506A7 /* Project object */;
+}

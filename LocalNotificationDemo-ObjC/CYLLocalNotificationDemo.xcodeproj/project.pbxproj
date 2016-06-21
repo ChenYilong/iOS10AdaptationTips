@@ -13,6 +13,11 @@
 		9A2A890D1D107B7900D0E59A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A2A890C1D107B7900D0E59A /* Assets.xcassets */; };
 		9A2A891B1D107B7900D0E59A /* CYLLocalNotificationDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A891A1D107B7900D0E59A /* CYLLocalNotificationDemoTests.m */; };
 		9A2A89261D107B7900D0E59A /* CYLLocalNotificationDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A89251D107B7900D0E59A /* CYLLocalNotificationDemoUITests.m */; };
+		9A57D9F91D19095500A506A7 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A57D9F81D19095500A506A7 /* UserNotifications.framework */; };
+		9A57D9FB1D19095500A506A7 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A57D9FA1D19095500A506A7 /* UserNotificationsUI.framework */; };
+		9A57D9FF1D19095500A506A7 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A57D9FE1D19095500A506A7 /* NotificationViewController.m */; };
+		9A57DA021D19095500A506A7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A57DA001D19095500A506A7 /* MainInterface.storyboard */; };
+		9A57DA061D19095500A506A7 /* CYLLocalNotificationController.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A57D9F61D19095500A506A7 /* CYLLocalNotificationController.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +35,28 @@
 			remoteGlobalIDString = 9A2A88FC1D107B7900D0E59A;
 			remoteInfo = CYLLocalNotificationDemo;
 		};
+		9A57DA041D19095500A506A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A2A88F51D107B7900D0E59A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A57D9F51D19095500A506A7;
+			remoteInfo = CYLLocalNotificationController;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9A57DA0A1D19095500A506A7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9A57DA061D19095500A506A7 /* CYLLocalNotificationController.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9A2A88FD1D107B7900D0E59A /* CYLLocalNotificationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CYLLocalNotificationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +73,13 @@
 		9A2A89211D107B7900D0E59A /* CYLLocalNotificationDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CYLLocalNotificationDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2A89251D107B7900D0E59A /* CYLLocalNotificationDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYLLocalNotificationDemoUITests.m; sourceTree = "<group>"; };
 		9A2A89271D107B7900D0E59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A57D9F61D19095500A506A7 /* CYLLocalNotificationController.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CYLLocalNotificationController.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A57D9F81D19095500A506A7 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		9A57D9FA1D19095500A506A7 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		9A57D9FD1D19095500A506A7 /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		9A57D9FE1D19095500A506A7 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		9A57DA011D19095500A506A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		9A57DA031D19095500A506A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +104,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9A57D9F31D19095500A506A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A57D9FB1D19095500A506A7 /* UserNotificationsUI.framework in Frameworks */,
+				9A57D9F91D19095500A506A7 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +122,8 @@
 				9A2A88FF1D107B7900D0E59A /* CYLLocalNotificationDemo */,
 				9A2A89191D107B7900D0E59A /* CYLLocalNotificationDemoTests */,
 				9A2A89241D107B7900D0E59A /* CYLLocalNotificationDemoUITests */,
+				9A57D9FC1D19095500A506A7 /* CYLLocalNotificationController */,
+				9A57D9F71D19095500A506A7 /* Frameworks */,
 				9A2A88FE1D107B7900D0E59A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +134,7 @@
 				9A2A88FD1D107B7900D0E59A /* CYLLocalNotificationDemo.app */,
 				9A2A89161D107B7900D0E59A /* CYLLocalNotificationDemoTests.xctest */,
 				9A2A89211D107B7900D0E59A /* CYLLocalNotificationDemoUITests.xctest */,
+				9A57D9F61D19095500A506A7 /* CYLLocalNotificationController.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,6 +179,26 @@
 			path = CYLLocalNotificationDemoUITests;
 			sourceTree = "<group>";
 		};
+		9A57D9F71D19095500A506A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A57D9F81D19095500A506A7 /* UserNotifications.framework */,
+				9A57D9FA1D19095500A506A7 /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A57D9FC1D19095500A506A7 /* CYLLocalNotificationController */ = {
+			isa = PBXGroup;
+			children = (
+				9A57D9FD1D19095500A506A7 /* NotificationViewController.h */,
+				9A57D9FE1D19095500A506A7 /* NotificationViewController.m */,
+				9A57DA001D19095500A506A7 /* MainInterface.storyboard */,
+				9A57DA031D19095500A506A7 /* Info.plist */,
+			);
+			path = CYLLocalNotificationController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,10 +209,12 @@
 				9A2A88F91D107B7900D0E59A /* Sources */,
 				9A2A88FA1D107B7900D0E59A /* Frameworks */,
 				9A2A88FB1D107B7900D0E59A /* Resources */,
+				9A57DA0A1D19095500A506A7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9A57DA051D19095500A506A7 /* PBXTargetDependency */,
 			);
 			name = CYLLocalNotificationDemo;
 			productName = CYLLocalNotificationDemo;
@@ -190,6 +257,23 @@
 			productReference = 9A2A89211D107B7900D0E59A /* CYLLocalNotificationDemoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		9A57D9F51D19095500A506A7 /* CYLLocalNotificationController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A57DA091D19095500A506A7 /* Build configuration list for PBXNativeTarget "CYLLocalNotificationController" */;
+			buildPhases = (
+				9A57D9F21D19095500A506A7 /* Sources */,
+				9A57D9F31D19095500A506A7 /* Frameworks */,
+				9A57D9F41D19095500A506A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CYLLocalNotificationController;
+			productName = CYLLocalNotificationController;
+			productReference = 9A57D9F61D19095500A506A7 /* CYLLocalNotificationController.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -219,6 +303,12 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9A2A88FC1D107B7900D0E59A;
 					};
+					9A57D9F51D19095500A506A7 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Y6X8P44TM5;
+						DevelopmentTeamName = "Meiwei Shuqian(Beijing) Information Technology co., LTD";
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 9A2A88F81D107B7900D0E59A /* Build configuration list for PBXProject "CYLLocalNotificationDemo" */;
@@ -237,6 +327,7 @@
 				9A2A88FC1D107B7900D0E59A /* CYLLocalNotificationDemo */,
 				9A2A89151D107B7900D0E59A /* CYLLocalNotificationDemoTests */,
 				9A2A89201D107B7900D0E59A /* CYLLocalNotificationDemoUITests */,
+				9A57D9F51D19095500A506A7 /* CYLLocalNotificationController */,
 			);
 		};
 /* End PBXProject section */
@@ -261,6 +352,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A57D9F41D19095500A506A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A57DA021D19095500A506A7 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +392,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9A57D9F21D19095500A506A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A57D9FF1D19095500A506A7 /* NotificationViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -306,7 +413,23 @@
 			target = 9A2A88FC1D107B7900D0E59A /* CYLLocalNotificationDemo */;
 			targetProxy = 9A2A89221D107B7900D0E59A /* PBXContainerItemProxy */;
 		};
+		9A57DA051D19095500A506A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A57D9F51D19095500A506A7 /* CYLLocalNotificationController */;
+			targetProxy = 9A57DA041D19095500A506A7 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9A57DA001D19095500A506A7 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A57DA011D19095500A506A7 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9A2A89281D107B7900D0E59A /* Debug */ = {
@@ -467,6 +590,28 @@
 			};
 			name = Release;
 		};
+		9A57DA071D19095500A506A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CYLLocalNotificationController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLLocalNotificationDemo.CYLLocalNotificationController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9A57DA081D19095500A506A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CYLLocalNotificationController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ElonChan.CYLLocalNotificationDemo.CYLLocalNotificationController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -505,6 +650,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		9A57DA091D19095500A506A7 /* Build configuration list for PBXNativeTarget "CYLLocalNotificationController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A57DA071D19095500A506A7 /* Debug */,
+				9A57DA081D19095500A506A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
