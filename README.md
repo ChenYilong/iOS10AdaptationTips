@@ -159,6 +159,16 @@ Code signing is required for product type 'Application' in SDK 'iOS 10.0'
 
 Reference : [***Security and Privacy Enhancements***](https://developer.apple.com/library/prerelease/content/releasenotes/General/WhatsNewIniOS/Articles/iOS10.html#//apple_ref/doc/uid/TP40017084-SW3) 
 
+##  Security
+
+### Ask for camera usage
+
+ ```Objective-C
+	<key>NSCameraUsageDescription</key>
+ 	<string></string>
+ 	<key>NSPhotoLibraryUsageDescription</key>
+ 	<string></string>
+ ```
 
 
 #【Chinese】 iOS10适配系列教程
