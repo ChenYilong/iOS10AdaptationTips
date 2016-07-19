@@ -170,6 +170,25 @@ Reference : [***Security and Privacy Enhancements***](https://developer.apple.co
  	<string></string>
  ```
 
+## You can work with AutoresizingMask and Autolayout Constraints at the same time in Xib or Storyboard
+
+Even iOS6 has give a compatibility to let developer work with AutoresizingMask and Autolayout Constraints together, Xcode can translates AutoresizingMask code into Constraints, but it does not work with Xib or Storyboard.
+
+
+ ```Objective-C
+@interface UIView (UIConstraintBasedCompatibility) 
+
+/* By default, the autoresizing mask on a view gives rise to constraints that fully determine 
+ the view's position. This allows the auto layout system to track the frames of views whose 
+ layout is controlled manually (through -setFrame:, for example).
+ When you elect to position the view using auto layout by adding your own constraints, 
+ you must set this property to NO. IB will do this for you.
+ */
+@property(nonatomic) BOOL translatesAutoresizingMaskIntoConstraints NS_AVAILABLE_IOS(6_0); // Default YES
+@end
+ ```
+
+But now Xcode8 can translate AutoresizingMask into Autolayout Constraints, so you can work with AutoresizingMask and Autolayout Constraints in Xib or Storyboard at the same time.
 
 #【Chinese】 iOS10适配系列教程
 
