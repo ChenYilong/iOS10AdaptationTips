@@ -161,14 +161,17 @@ Reference : [***Security and Privacy Enhancements***](https://developer.apple.co
 
 ##  Security
 
-### Ask for camera usage
+### Ask for Camera, PhotoLibrary, Microphone usage
 
  ```Objective-C
-	<key>NSCameraUsageDescription</key>
- 	<string></string>
- 	<key>NSPhotoLibraryUsageDescription</key>
- 	<string></string>
+       <key>NSCameraUsageDescription</key>
+  	<string></string>
+  	<key>NSMicrophoneUsageDescription</key>
+  	<string></string>
+  	<key>NSPhotoLibraryUsageDescription</key>
+       <string></string>
  ```
+
 
 ## You can work with AutoresizingMask and Autolayout Constraints at the same time in Xib or Storyboard
 
