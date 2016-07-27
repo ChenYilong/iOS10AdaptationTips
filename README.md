@@ -6,7 +6,18 @@ Reference:[**iOS9AdaptationTips**]( https://github.com/ChenYilong/iOS9Adaptation
 
 ### User Notifications : both a new and old framework 
 
-in iOS10, Several UIKit classes related to notifications are deprecated, such as
+If you diff iOS10 and iOS9 SDK with this command below, you will find six UIKit classes related to notifications are deprecated in iOS10.
+
+```
+UIKit9Dir="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework"
+UIKit10Dir="/Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework"
+
+OptIgnore=--ignore-matching-lines='//.*Copyright'
+DIFFBIN=/usr/bin/diff
+$DIFFBIN -U 1 -r -x '*.tbd' -x '*.modulemap' $OptIgnore $UIKit9Dir $UIKit10Dir|egrep -C 1 "NS_CLASS_DEPRECATED_IOS.*"|grep interface
+```
+
+All of them are:
 
  1. UILocalNotification
  2. UIMutableUserNotificationAction
@@ -161,17 +172,86 @@ Reference : [***Security and Privacy Enhancements***](https://developer.apple.co
 
 ##  Security
 
-### Ask for Camera, PhotoLibrary, Microphone usage
+### Access privacy-sensitive data
 
- ```Objective-C
-       <key>NSCameraUsageDescription</key>
-  	<string></string>
-  	<key>NSMicrophoneUsageDescription</key>
-  	<string></string>
-  	<key>NSPhotoLibraryUsageDescription</key>
-       <string></string>
+Before you access privacy-sensitive data like Camera, Contacts, and so on, you must ask for the authorization, your app will crash when you access them.Then Xcode will log like:
+
+ > This app has crashed because it attempted to access privacy-sensitive data without a usage description. The app's Info.plist must contain an `NSContactsUsageDescription` key with a string value explaining to the user how the app uses this data.
+
+How to deal with this?
+
+Open the file in your project named `info.plist`, right click it, opening as `Source Code`, paste this code below to it. Or you can open  `info.plist` as `Property List` by default, click the add button, Xcode will give you the suggest completions while typing `Privacy -`  with the help of keybord  ⬆️ and ⬇️.
+
+
+Remember to write your description why you ask for this authorization, between   `<string> ` and `</string>`:
+
+ ```XML
+    <!-- 🖼 Photo Library -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string></string>
+    
+    <!-- 📷 Camera -->
+	<key>NSCameraUsageDescription</key>
+	<string></string>
+    
+    <!-- 🎤 Microphone -->
+    <key>NSMicrophoneUsageDescription</key>
+    <string></string>
+    
+    <!-- 📍 Location -->
+	<key>NSLocationUsageDescription</key>
+	<string></string>
+    
+    <!-- 📍 Location When In Use -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+    
+    <!-- 📍 Location Always -->
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string></string>
+
+    <!-- 📆 Calendars -->
+	<key>NSCalendarsUsageDescription</key>
+	<string></string>
+
+    <!-- ⏰ Reminders -->
+    <key>NSRemindersUsageDescription</key>
+    <string></string>
+    
+    <!-- 🏊 Motion -->
+    <key>NSMotionUsageDescription</key>
+    <string></string>
+    
+    <!-- 💊 Health Update -->
+    <key>NSHealthUpdateUsageDescription</key>
+    <string></string>
+    
+    <!-- 💊 Health Share -->
+    <key>NSHealthShareUsageDescription</key>
+    <string></string>
+    
+    <!-- ᛒ🔵 Bluetooth Peripheral -->
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string></string>
+    
  ```
 
+If it does not works, try to ask for the the background authorization:
+
+
+ ```XML 
+<key>UIBackgroundModes</key>
+<array>
+    <!-- something you should use in background -->
+    <string>location</string>
+</array>
+ ```
+
+Or go to `target -> Capabilities -> Background Modes -> open the background Modes`:
+
+![enter image description here](http://cdn2.raywenderlich.com/wp-content/uploads/2014/12/background_modes.png)
+
+then clean your Project, run it.
 
 ## You can work with AutoresizingMask and Autolayout Constraints at the same time in Xib or Storyboard
 
