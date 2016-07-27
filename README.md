@@ -180,7 +180,7 @@ Before you access privacy-sensitive data like Camera, Contacts, and so on, you m
 
 How to deal with this?
 
-Open the file in your project named `info.plist`, right click it, opening as `Source Code`, paste this code below to it. Or you can open  `info.plist` as `Property List` by default, click the add button, Xcode will give you the suggest completions while typing `Privacy -`  with the help of keybord  ⬆️ and ⬇️.
+Open the file in your project named `info.plist`, right click it, opening as `Source Code`, paste this code below to it. Or you can open  `info.plist` as `Property List` by default, click the add button, Xcode will give you the suggest completions while typing `Privacy -`  with the help of keyboard  ⬆️ and ⬇️.
 
 
 Remember to write your description why you ask for this authorization, between   `<string> ` and `</string>`:
