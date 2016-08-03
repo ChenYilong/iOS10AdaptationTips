@@ -1,4 +1,8 @@
-# iOS10AdaptationTips [Draft, not published]
+# iOS10AdaptationTips
+
+<p align="center">
+[![Codewake](https://www.codewake.com/badges/ask_question.svg)](https://www.codewake.com/p/ios10adaptationtips)
+</a>
 
 Reference:[**iOS9AdaptationTips**]( https://github.com/ChenYilong/iOS9AdaptationTips ).
 
@@ -259,7 +263,7 @@ Or go to `target -> Capabilities -> Background Modes -> open the background Mode
 
 then clean your Project, run it.
 
-## You can work with AutoresizingMask and Autolayout Constraints at the same time in Xib or Storyboard
+## You can work with AutoresizingMask and Autolayout Constraints at the same time in Xib and Storyboard
 
 Even iOS6 has give a compatibility to let developer work with AutoresizingMask and Autolayout Constraints together, Xcode can translates AutoresizingMask code into Constraints, but it does not work with Xib or Storyboard.
 
@@ -304,7 +308,7 @@ Objective-C:
 Or:
 
  ```Objective-C
-//App Deployment Target should beyond 8.0:
+//App Deployment Target should be beyond 8.0:
 if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){.majorVersion = 9, .minorVersion = 1, .patchVersion = 0}]) {
     NSLog(@"Hello from > iOS 9.1");
 }
@@ -318,7 +322,7 @@ if ([NSProcessInfo.processInfo isOperatingSystemAtLeastVersion:(NSOperatingSyste
 Or:
 
  ```Objective-C
-//App Deployment Target should beyond 2.0:
+//App Deployment Target should be beyond 2.0:
 if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_0) {
     // do stuff for iOS 9 and newer
 } else {
