@@ -6,7 +6,7 @@ Reference:[**iOS9AdaptationTips**]( https://github.com/ChenYilong/iOS9Adaptation
 
 ### User Notifications : both a new and old framework 
 
-If you diff iOS10 and iOS9 SDK with this command below, you will find six UIKit classes related to notifications are deprecated in iOS10.
+If you diff SDK 'iOS 10.0'(Xcode 8)  and SDK 'iOS 9.0' with this command below, you will find six UIKit classes related to notifications are deprecated in SDK 'iOS 10.0'(Xcode 8) .
 
 ```
 UIKit9Dir="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework"
@@ -26,14 +26,14 @@ All of them are:
  5. UIUserNotificationCategory 
  6. UIUserNotificationSettings
 
-Old api also works fine with iOS10, but we had better use the APIs in the User Notifications framework instead.
+Old api also works fine with SDK 'iOS 10.0'(Xcode 8) , but we had better use the APIs in the User Notifications framework instead.
 
 In addation to these classes, the `handleActionWithIdentifier:forLocalNotification:`, `handleActionWithIdentifier:forRemoteNotification:`, `didReceiveLocalNotification:withCompletion:`, and `didReceiveRemoteNotification:withCompletion:` WatchKit methods. Use `handleActionWithIdentifier:forNotification:` and `didReceiveNotification:withCompletion:` instead.
 Also the notification-handling methods in WKExtensionDelegate, such as `didReceiveRemoteNotification:` and `handleActionWithIdentifier:forRemoteNotification:`. Instead of using these methods, first create a delegate object that adopts the UNUserNotificationCenterDelegate protocol and implement the appropriate methods. Then assign the delegate object to the delegate property of the singleton UNUserNotificationCenter object.
 
-iOS 10 introduces the User Notifications framework (UserNotifications.framework), independent from UIKit, which supports the delivery and handling of local and remote notifications. so it's' both a new and old framework. You use the classes of this framework to schedule the delivery of local notifications based on specific conditions, such as time or location. Apps and app extensions can use this framework to receive and potentially modify local and remote notifications when they are delivered to the user’s device.
+SDK 'iOS 10.0'(Xcode 8)  introduces the User Notifications framework (UserNotifications.framework), independent from UIKit, which supports the delivery and handling of local and remote notifications. so it's' both a new and old framework. You use the classes of this framework to schedule the delivery of local notifications based on specific conditions, such as time or location. Apps and app extensions can use this framework to receive and potentially modify local and remote notifications when they are delivered to the user’s device.
 
-Also introduced in iOS 10, the User Notifications UI framework (UserNotificationsUI.framework) lets you customize the appearance of local and remote notifications when they appear on the user’s device. You use this framework to define an app extension that receives the notification data and provides the corresponding visual representation. Your extension can also respond to custom actions associated with those notifications.
+Also introduced in SDK 'iOS 10.0'(Xcode 8) , the User Notifications UI framework (UserNotificationsUI.framework) lets you customize the appearance of local and remote notifications when they appear on the user’s device. You use this framework to define an app extension that receives the notification data and provides the corresponding visual representation. Your extension can also respond to custom actions associated with those notifications.
 
 I'll introduce the User Notifications framework in two parts:
  1. Local Notification
@@ -52,7 +52,7 @@ LocalNotification has a limit, you can't trigger a block of code to run when the
 
 Big Diff:
 
- 1. Now you can either present alert, sound or increase badge while the app is in foreground too with iOS 10
+ 1. Now you can either present alert, sound or increase badge while the app is in foreground too with SDK 'iOS 10.0'(Xcode 8) 
  2. Now you can handle all event in one place when user tapped (or slided) the action button, even while the app has already been killed.
  3. Support 3D touch instead of sliding gesture.
  4. Now you can remove specifical local notification just by one row code.
@@ -120,7 +120,7 @@ Lock Screen |  ![enter image description here](http://a64.tinypic.com/33vf39i.jp
 If Repeat by default |  ![enter image description here](http://a64.tinypic.com/33vf39i.jpg) |![enter image description here](http://i67.tinypic.com/98t75s.jpg)
  3D Touch |  ![enter image description here](http://a67.tinypic.com/dorw3b.jpg) | not support
 
- 1. Now you can either present alert, sound or increase badge while the app is in foreground too with iOS 10
+ 1. Now you can either present alert, sound or increase badge while the app is in foreground too with SDK 'iOS 10.0'(Xcode 8) 
  2. Now you can handle all event in one place when user tapped (or slided) the action button, even while the app has already been killed.
  3. Support 3D touch instead of sliding gesture.
  4. Now you can remove specifical local notification just by one row code.
@@ -152,6 +152,12 @@ If Repeat by default |  ![enter image description here](http://a64.tinypic.com/3
     }
 }
 
+ ```
+
+By the way, you can use this code to check Xcode Version:
+
+ ```Objective-C
+#define XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8    __has_include(<UserNotifications/UserNotifications.h>)
  ```
 
 #### schedule the delivery of local notifications based on location
@@ -273,6 +279,83 @@ Even iOS6 has give a compatibility to let developer work with AutoresizingMask a
 
 But now Xcode8 can translate AutoresizingMask into Autolayout Constraints, so you can work with AutoresizingMask and Autolayout Constraints in Xib or Storyboard at the same time.
 
+## iOS Version Checking
+
+ Do not do this below to check the iOS version in your app:
+
+ ```Objective-C
+#define IsIOS7 ([[[[UIDevice currentDevice] systemVersion] substringToIndex:1] intValue]>=7)
+ ```
+
+It will always return NO, `substringToIndex:1` in SDK 'iOS 10.0'(Xcode 8)  means SDK 'iOS 1.0'.
+
+Use this instead:
+
+Objective-C:
+
+ ```Objective-C
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+ ```
+
+Or:
+
+ ```Objective-C
+//App Deployment Target should beyond 8.0:
+if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){.majorVersion = 9, .minorVersion = 1, .patchVersion = 0}]) {
+    NSLog(@"Hello from > iOS 9.1");
+}
+
+// Using short-form for the struct, we can make things somewhat more compact:
+if ([NSProcessInfo.processInfo isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){9,3,0}]) {
+    NSLog(@"Hello from > iOS 9.3");
+}
+ ```
+
+Or:
+
+ ```Objective-C
+//App Deployment Target should beyond 2.0:
+if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_0) {
+    // do stuff for iOS 9 and newer
+} else {
+    // do stuff for older versions than iOS 9
+}
+ ```
+
+SDK 'iOS 10.0' (Xcode 8) gives more version numbers even future version.
+
+ ```Objective-C
+#define NSFoundationVersionNumber_iOS_9_0 1240.1
+#define NSFoundationVersionNumber_iOS_9_1 1241.14
+#define NSFoundationVersionNumber_iOS_9_2 1242.12
+#define NSFoundationVersionNumber_iOS_9_3 1242.12
+#define NSFoundationVersionNumber_iOS_9_4 1280.25
+#define NSFoundationVersionNumber_iOS_9_x_Max 1299
+ ```
+
+Swift:
+
+ ```Swift
+if NSProcessInfo().isOperatingSystemAtLeastVersion(NSOperatingSystemVersion(majorVersion: 10, minorVersion: 0, patchVersion: 0)) {
+    // modern code
+}
+ ```
+
+Or:
+
+ ```Swift
+if #available(iOS 10.0, *) {
+    // modern code
+} else {
+    // Fallback on earlier versions
+}
+ ```
+
+Reference:[***Efficient iOS Version Checking***](https://pspdfkit.com/blog/2016/efficient-iOS-version-checking/).
 #【Chinese】 iOS10适配系列教程
 
 学习交流群：561873398
