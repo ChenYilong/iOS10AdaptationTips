@@ -243,7 +243,10 @@ Remember to write your description why you ask for this authorization, between  
     <!-- ᛒ🔵 Bluetooth Peripheral -->
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string></string>
-    
+	
+	<!-- 🎵 Media Library -->
+	<key>NSAppleMusicUsageDescription</key>
+	<string></string>
  ```
 
 If it does not works, try to ask for the the background authorization:
