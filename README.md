@@ -365,6 +365,8 @@ if #available(iOS 10.0, *) {
 Reference:[***Efficient iOS Version Checking***](https://pspdfkit.com/blog/2016/efficient-iOS-version-checking/).
 #【Chinese】 iOS10适配系列教程
 
+###[中文版 chinese edition](https://github.com/BaihaoTian/iOS10AdaptationTips-chineseEdition)
+
 学习交流群：561873398
 
 相关链接： [《iOS9适配系列教程》]( https://github.com/ChenYilong/iOS9AdaptationTips) 。
