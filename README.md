@@ -60,6 +60,7 @@ Big Diff:
  2. Now you can handle all event in one place when user tapped (or slided) the action button, even while the app has already been killed.
  3. Support 3D touch instead of sliding gesture.
  4. Now you can remove specifical local notification just by one row code.
+ 5. Support Rich Notification with custom UI. 
 
 sample use with Objective-C implemation:
 

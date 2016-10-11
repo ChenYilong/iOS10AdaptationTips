@@ -111,7 +111,11 @@
 
 #if XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8
 
-// The method will be called on the delegate only if the application is in the foreground. If the method is not implemented or the handler is not called in a timely manner then the notification will not be presented. The application can choose to have the notification presented as a sound, badge, alert and/or in the notification list. This decision should be based on whether the information in the notification is otherwise visible to the user.
+/*
+ @brief The method will be called on the delegate only if the application is in the foreground. If the method is not implemented or the handler is not called in a timely manner then the notification will not be presented. The application can choose to have the notification presented as a sound, badge, alert and/or in the notification list. This decision should be based on whether the information in the notification is otherwise visible to the user.
+ @param completionHandler The block to execute with the presentation option for the notification. Always execute this block at some point during your implementation of this method. Specify an option indicating how you want the system to alert the user. This block has no return value and takes the following parameter:
+ @param options The option for notifying the user, if at all. Specify UNNotificationPresentationOptionNone to alert the user with the original options in notification. Specify UNNotificationPresentationOptionNone to silence any alerts. Pass other values to specify which alerts you want used. For information about the available alert options, see UNNotificationPresentationOptions.
+*/
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
        willPresentNotification:(UNNotification *)notification
          withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
