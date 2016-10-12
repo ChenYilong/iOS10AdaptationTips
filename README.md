@@ -363,6 +363,19 @@ if #available(iOS 10.0, *) {
 }
  ```
 
+## iOS10 Dealing With Untrusted Enterprise Developer
+
+Since iOS9, there is no more “trust” option for an enterprise build.
+
+Users have to do the configuration themselves: Go to Settings - General - Profiles - tap on your Profile - tap on Trust button. [Reference](https://github.com/ChenYilong/iOS9AdaptationTips#3ios-9-dealing-with-untrusted-enterprise-developer).
+
+
+but iOS10 has a little change, 
+
+Users should go to Settings - General - Device Management - tap on your Profile - tap on Trust button.
+
+![enter image description here](http://ww3.sinaimg.cn/large/801b780ajw1f8plpn0l67g209r0hcava.gif)
+
 Reference:[***Efficient iOS Version Checking***](https://pspdfkit.com/blog/2016/efficient-iOS-version-checking/).
 #【Chinese】 iOS10适配系列教程
 
