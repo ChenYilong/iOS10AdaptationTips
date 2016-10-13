@@ -21,8 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     application.applicationIconBadgeNumber = 0;
     [self registerForRemoteNotification];
-    if ([[UIDevice currentDevice].systemVersion floatValue] < 10.0) {
-//    if (SYSTEM_VERSION_LESS_THAN(@"10.0")) {
+    if (SYSTEM_VERSION_LESS_THAN(@"10.0")) {
         NSDictionary *remoteNotification = [self getRemoteNotificationFromLaunchOptions:launchOptions];
         if (remoteNotification) {
             //TODO:处理远程推送内容
@@ -117,6 +116,8 @@
 #pragma mark -
 #pragma mark - UNUserNotificationCenterDelegate Method
 
+#if XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8
+
 /**
  * Required for iOS 10+
  * 在前台收到推送内容, 执行的方法
@@ -140,7 +141,7 @@
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void (^)())completionHandler {
-    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    NSDictionary *userInfo = response.notification.request.content.userInfo;
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         //TODO:处理远程推送内容
         NSLog(@"%@", userInfo);
@@ -148,6 +149,9 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
     completionHandler(UNNotificationPresentationOptionBadge + UNNotificationPresentationOptionSound);
 }
+
+
+#endif
 
 #pragma mark -
 #pragma mark - UIApplicationDelegate Method
@@ -174,8 +178,10 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
  */
 - (void)registerForRemoteNotification {
     // iOS 10 兼容
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
-//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+        
+#if XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8
+        
         // 使用 UNUserNotificationCenter 来管理通知
         UNUserNotificationCenter *uncenter = [UNUserNotificationCenter currentNotificationCenter];
         // 监听回调事件
@@ -202,11 +208,13 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
                 NSLog(@"已授权");
             }
         }];
+        
+#endif
+        
     }
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
-//    else if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+    else if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
         UIUserNotificationType types = UIUserNotificationTypeAlert |
         UIUserNotificationTypeBadge |
         UIUserNotificationTypeSound;
