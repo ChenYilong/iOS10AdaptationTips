@@ -10,9 +10,7 @@
 		9A09A82B1DAA24DD0064D1BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A09A82A1DAA24DD0064D1BD /* main.m */; };
 		9A09A82E1DAA24DE0064D1BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A09A82D1DAA24DE0064D1BD /* AppDelegate.m */; };
 		9A09A8311DAA24DE0064D1BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A09A8301DAA24DE0064D1BD /* ViewController.m */; };
-		9A09A8341DAA24DE0064D1BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A09A8321DAA24DE0064D1BD /* Main.storyboard */; };
 		9A09A8361DAA24DE0064D1BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A09A8351DAA24DE0064D1BD /* Assets.xcassets */; };
-		9A09A8391DAA24DE0064D1BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A09A8371DAA24DE0064D1BD /* LaunchScreen.storyboard */; };
 		9A09A8441DAA24DE0064D1BD /* RemoteNotificationDemo_ObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A09A8431DAA24DE0064D1BD /* RemoteNotificationDemo_ObjCTests.m */; };
 		9A09A84F1DAA24DE0064D1BD /* RemoteNotificationDemo_ObjCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A09A84E1DAA24DE0064D1BD /* RemoteNotificationDemo_ObjCUITests.m */; };
 /* End PBXBuildFile section */
@@ -41,9 +39,7 @@
 		9A09A82D1DAA24DE0064D1BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9A09A82F1DAA24DE0064D1BD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9A09A8301DAA24DE0064D1BD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9A09A8331DAA24DE0064D1BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A09A8351DAA24DE0064D1BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9A09A8381DAA24DE0064D1BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A09A83A1DAA24DE0064D1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A09A83F1DAA24DE0064D1BD /* RemoteNotificationDemo-ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RemoteNotificationDemo-ObjCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A09A8431DAA24DE0064D1BD /* RemoteNotificationDemo_ObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoteNotificationDemo_ObjCTests.m; sourceTree = "<group>"; };
@@ -107,9 +103,7 @@
 				9A09A85C1DAA27700064D1BD /* CYLConstants.h */,
 				9A09A82F1DAA24DE0064D1BD /* ViewController.h */,
 				9A09A8301DAA24DE0064D1BD /* ViewController.m */,
-				9A09A8321DAA24DE0064D1BD /* Main.storyboard */,
 				9A09A8351DAA24DE0064D1BD /* Assets.xcassets */,
-				9A09A8371DAA24DE0064D1BD /* LaunchScreen.storyboard */,
 				9A09A83A1DAA24DE0064D1BD /* Info.plist */,
 				9A09A8291DAA24DD0064D1BD /* Supporting Files */,
 			);
@@ -254,9 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A09A8391DAA24DE0064D1BD /* LaunchScreen.storyboard in Resources */,
 				9A09A8361DAA24DE0064D1BD /* Assets.xcassets in Resources */,
-				9A09A8341DAA24DE0064D1BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,25 +310,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		9A09A8321DAA24DE0064D1BD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9A09A8331DAA24DE0064D1BD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9A09A8371DAA24DE0064D1BD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9A09A8381DAA24DE0064D1BD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		9A09A8511DAA24DE0064D1BD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -376,7 +349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -416,7 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -428,7 +401,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "RemoteNotificationDemo-ObjC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ElonChan.RemoteNotificationDemo-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -439,7 +414,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "RemoteNotificationDemo-ObjC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ElonChan.RemoteNotificationDemo-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,6 +488,7 @@
 				9A09A8551DAA24DE0064D1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A09A8561DAA24DE0064D1BD /* Build configuration list for PBXNativeTarget "RemoteNotificationDemo-ObjCTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +497,7 @@
 				9A09A8581DAA24DE0064D1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A09A8591DAA24DE0064D1BD /* Build configuration list for PBXNativeTarget "RemoteNotificationDemo-ObjCUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +506,7 @@
 				9A09A85B1DAA24DE0064D1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

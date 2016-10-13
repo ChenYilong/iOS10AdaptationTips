@@ -9,10 +9,22 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
+#if XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8
+
 /// Notification become independent from UIKit
 @import UserNotifications;
 
-@interface AppDelegate ()<UNUserNotificationCenterDelegate>
+#endif
+
+
+@interface AppDelegate ()
+
+#if XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8
+
+<UNUserNotificationCenterDelegate>
+
+#endif
+
 @property (nonatomic, strong) UINavigationController *navigationController;
 @end
 
