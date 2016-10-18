@@ -190,11 +190,19 @@ Before you access privacy-sensitive data like Camera, Contacts, and so on, you m
  > This app has crashed because it attempted to access privacy-sensitive data without a usage description. The app's Info.plist must contain an `NSContactsUsageDescription` key with a string value explaining to the user how the app uses this data.
 
 How to deal with this?
+As apple say:
+
+ > You must statically declare your app’s intended use of protected data classes by including the appropriate purpose string keys in your Info.plist file.
 
 Open the file in your project named `info.plist`, right click it, opening as `Source Code`, paste this code below to it. Or you can open  `info.plist` as `Property List` by default, click the add button, Xcode will give you the suggest completions while typing `Privacy -`  with the help of keyboard  ⬆️ and ⬇️.
 
+The list of frameworks that count as private data is a long one:
 
-Remember to write your description why you ask for this authorization, between   `<string> ` and `</string>`:
+> Contacts, Calendar, Reminders, Photos, Bluetooth Sharing, Microphone, Camera, Location, Health, HomeKit, Media Library, Motion, CallKit, Speech Recognition, SiriKit, TV Provider.
+
+![](http://ww4.sinaimg.cn/large/006y8mN6jw1f8wlidzveoj317o0ni40q.jpg)
+
+Remember to write your description why you ask for this authorization, between   `<string> ` and `</string>`, or your app will be rejected by app:
 
  ```XML
     <!-- 🖼 Photo Library -->
