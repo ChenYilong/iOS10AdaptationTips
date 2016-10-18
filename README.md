@@ -274,7 +274,9 @@ Or go to `target -> Capabilities -> Background Modes -> open the background Mode
 ![enter image description here](http://cdn2.raywenderlich.com/wp-content/uploads/2014/12/background_modes.png)
 
 then clean your Project, run it.
-
+Reference:
+ -  [](https://developer.apple.com/videos/play/wwdc2016/709/) 
+ -  [Full list of Info.plist keys](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) 
 ## You can work with AutoresizingMask and Autolayout Constraints at the same time in Xib and Storyboard
 
 Even iOS6 has give a compatibility to let developer work with AutoresizingMask and Autolayout Constraints together, Xcode can translates AutoresizingMask code into Constraints, but it does not work with Xib or Storyboard.
