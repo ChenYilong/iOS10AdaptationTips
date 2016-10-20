@@ -162,7 +162,6 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     completionHandler(UNNotificationPresentationOptionBadge + UNNotificationPresentationOptionSound);
 }
 
-
 #endif
 
 #pragma mark -
@@ -201,6 +200,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         //iOS 10 使用以下方法注册，才能得到授权
         [uncenter requestAuthorizationWithOptions:(UNAuthorizationOptionAlert+UNAuthorizationOptionBadge+UNAuthorizationOptionSound)
                                 completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                                    [[UIApplication sharedApplication] registerForRemoteNotifications];
                                     //TODO:授权状态改变
                                     NSLog(@"%@" , granted ? @"授权成功" : @"授权失败");
                                 }];
