@@ -14,14 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Schedule the notification.
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         return true
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void) {
+    private func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void) {
         print("Tapped in notification")
         let actionIdentifier = response.actionIdentifier
         if actionIdentifier == "com.apple.UNNotificationDefaultActionIdentifier" || actionIdentifier == "com.apple.UNNotificationDismissActionIdentifier" {
@@ -34,17 +34,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         repeat {
             if (accept) {
                 let title = "Tom is comming now"
-                self.addLabel(title: title, color: UIColor.yellow())
+                self.addLabel(title: title, color: UIColor.yellow)
                 break;
             }
             if (decline) {
                 let title = "Tom won't come";
-                self.addLabel(title: title, color: UIColor.red())
+                self.addLabel(title: title, color: UIColor.red)
                 break;
             }
             if (snooze) {
                 let title = "Tom will snooze for minute"
-                self.addLabel(title: title, color: UIColor.red());
+                self.addLabel(title: title, color: UIColor.red);
                 break;
             }
         } while (false);
@@ -54,17 +54,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     private func addLabel(title: String, color: UIColor) {
         let label = UILabel.init()
-        label.backgroundColor = UIColor.red()
+        label.backgroundColor = UIColor.red
         label.text = title
         label.sizeToFit()
         label.backgroundColor = color
-        let centerX = UIScreen.main().bounds.width * 0.5
-        let centerY = CGFloat(arc4random_uniform(UInt32(UIScreen.main().bounds.height)))
+        let centerX = UIScreen.main.bounds.width * 0.5
+        let centerY = CGFloat(arc4random_uniform(UInt32(UIScreen.main.bounds.height)))
         label.center = CGPoint(x: centerX, y: centerY)
         self.window!.rootViewController!.view.addSubview(label)
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: (UNNotificationPresentationOptions) -> Void) {
+    private func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: (UNNotificationPresentationOptions) -> Void) {
         print("Notification being triggered")
         // Must be called when finished, when you do not want foreground show, pass [] to the completionHandler()
         completionHandler(UNNotificationPresentationOptions.alert)
