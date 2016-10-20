@@ -26,15 +26,10 @@ class ViewController: UIViewController {
         let actions = [ accept, decline, snooze ]
         
         // create a category
-        let inviteCategory = UNNotificationCategory(identifier: "com.elonchan.localNotification",
-                                                    actions: actions,
-                                                    minimalActions: actions,
-                                                    intentIdentifiers: [],
-                                                    options: [])
-        
+        let inviteCategory = UNNotificationCategory(identifier: "com.elonchan.localNotification", actions: actions, intentIdentifiers: [], options: [])
         // registration
         center.setNotificationCategories([ inviteCategory ])
-        center.requestAuthorization([.alert, .sound]) { (granted, error) in
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             // Enable or disable features based on authorization.
         }
         // Do any additional setup after loading the view, typically from a nib.
@@ -45,10 +40,12 @@ class ViewController: UIViewController {
         content.title = NSString.localizedUserNotificationString(forKey: "Elon said:", arguments: nil)
         content.body = NSString.localizedUserNotificationString(forKey: "Hello Tom！Get up, let's play with Jerry!", arguments: nil)
         content.sound = UNNotificationSound.default()
-        content.badge = UIApplication.shared().applicationIconBadgeNumber + 1;
+        // NSNumber类型数据
+        content.badge = NSNumber(integerLiteral: UIApplication.shared.applicationIconBadgeNumber + 1);
         content.categoryIdentifier = "com.elonchan.localNotification"
         // Deliver the notification in five seconds.
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1.0, repeats: true)
+        /**** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'time interval must be at least 60 if repeating'*/
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: true)
         let request = UNNotificationRequest.init(identifier: "FiveSecond", content: content, trigger: trigger)
         
         // Schedule the notification.
