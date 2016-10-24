@@ -206,56 +206,76 @@ Remember to write your description why you ask for this authorization, between  
 
  ```XML
     <!-- 🖼 Photo Library -->
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>$(PRODUCT_NAME) photo use</string>
     
     <!-- 📷 Camera -->
-	<key>NSCameraUsageDescription</key>
-	<string></string>
+    <key>NSCameraUsageDescription</key>
+    <string>$(PRODUCT_NAME) camera use</string>
     
     <!-- 🎤 Microphone -->
     <key>NSMicrophoneUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) microphone use</string>
     
     <!-- 📍 Location -->
-	<key>NSLocationUsageDescription</key>
-	<string></string>
+    <key>NSLocationUsageDescription</key>
+    <string>$(PRODUCT_NAME) location use</string>
     
     <!-- 📍 Location When In Use -->
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>$(PRODUCT_NAME) location use</string>
     
     <!-- 📍 Location Always -->
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>$(PRODUCT_NAME) always uses location </string>
 
     <!-- 📆 Calendars -->
-	<key>NSCalendarsUsageDescription</key>
-	<string></string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>$(PRODUCT_NAME) calendar events</string>
 
     <!-- ⏰ Reminders -->
     <key>NSRemindersUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) reminder use</string>
     
+    <!-- 📒 Contacts -->
+    <key>NSContactsUsageDescription</key>
+    <string>$(PRODUCT_NAME) contact use</string>
+
     <!-- 🏊 Motion -->
     <key>NSMotionUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) motion use</string>
     
     <!-- 💊 Health Update -->
     <key>NSHealthUpdateUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) heath update use</string>
     
     <!-- 💊 Health Share -->
     <key>NSHealthShareUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) heath share use</string>
     
     <!-- ᛒ🔵 Bluetooth Peripheral -->
     <key>NSBluetoothPeripheralUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) Bluetooth Peripheral use</string>
 
     <!-- 🎵 Media Library -->
     <key>NSAppleMusicUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) media library use</string>
+
+    <!-- 📱 Siri -->
+    <key>NSSiriUsageDescription</key>
+    <string>$(PRODUCT_NAME) siri use</string>
+
+    <!-- 🏡 HomeKit -->
+    <key>NSHomeKitUsageDescription</key>
+    <string>$(PRODUCT_NAME) home kit use</string>
+
+    <!-- 📻 SpeechRecognition -->
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>$(PRODUCT_NAME) speech use</string>
+
+    <!-- 📺 VideoSubscriber -->
+    <key>NSVideoSubscriberAccountUsageDescription</key>
+    <string>$(PRODUCT_NAME) tvProvider use</string>
  ```
 
 If it does not works, try to ask for the the background authorization:
