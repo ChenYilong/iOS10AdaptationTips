@@ -169,6 +169,18 @@ By the way, you can use this code to check Xcode Version:
 
 If your iPhone installed Foursquare-app, you will deliver notification when you enters or leaves a geographic region. How to do that?
 
+just trigger with this:
+
+ ```Objective-C
+@interface UNLocationNotificationTrigger : UNNotificationTrigger
+
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) CLRegion *region;
+
++ (instancetype)triggerWithRegion:(CLRegion *)region repeats:(BOOL)repeats __WATCHOS_PROHIBITED;
+
+@end
+ ```
+
 ## some little error
 
 > Check dependencies
@@ -408,9 +420,10 @@ Users should go to Settings - General - Device Management - tap on your Profile 
 ![enter image description here](http://ww3.sinaimg.cn/large/801b780ajw1f8plpn0l67g209r0hcava.gif)
 
 Reference:[***Efficient iOS Version Checking***](https://pspdfkit.com/blog/2016/efficient-iOS-version-checking/).
+
 #【Chinese】 iOS10适配系列教程
 
-##[iOS10适配系列教程 中文版](https://github.com/BaihaoTian/iOS10AdaptationTips)
+多谢 @BaihaoTian 为本教程（英文版）提供了中文版本，详情见地址：[《iOS10适配系列教程 中文版》](https://github.com/BaihaoTian/iOS10AdaptationTips)。本教程优先更新英文版本，如果发现中文教程较旧，欢迎提PR。
 
 ###Notification
 
@@ -427,19 +440,20 @@ DIFFBIN=/usr/bin/diff
 $DIFFBIN -U 1 -r -x '*.tbd' -x '*.modulemap' $OptIgnore $UIKit9Dir $UIKit10Dir|egrep -C 1 "NS_CLASS_DEPRECATED_IOS.*"|grep interface
 
 ```
+
 包含如下这些:
 
-1.UILocalNotification
+ 1. UILocalNotification
 
-2.UIMutableUserNotificationAction
+ 2. UIMutableUserNotificationAction
 
-3.UIMutableUserNotificationCategory
+ 3. UIMutableUserNotificationCategory
 
-4.UIUserNotificationAction
+ 4. UIUserNotificationAction
 
-5.UIUserNotificationCategory
+ 5. UIUserNotificationCategory
 
-6.UIUserNotificationSettings
+ 6. UIUserNotificationSettings
 
 旧的接口也能在SDK‘iOS10.0’(Xcode8)中正常使用，但我们最好开始使用User Notifications framework中的APIs去替代老的接口。
 
@@ -455,12 +469,14 @@ SDK'iOS 10.0'(Xcode 8) 引入了 从UIKit独立出来的User NOtification framew
 
 我将分两个部分介绍这个User Notifications framework:
 
-1.本地通知
+ 1.本地通知
 
-2.远程通知
+ 2.远程通知
 
 ####本地通知，可以把任何东西写在一个地方。
-一些人可能和这个伙计有同样的问题：
+
+一些人可能和这位朋友有同样的问题：
+
 ![](http://ocnhrgfjb.bkt.clouddn.com/image/notification/question-1.jpeg)
 
 第一个问题几乎是不可能直接解决的，但是通过本地通知从某种角度而言也许是最好的方式去在特定的时间甚至是特定的位置去唤醒你的app。这是因为本地通知就是通过特定的条件比如时间或定位来有计划的传送本地通知。
@@ -473,13 +489,13 @@ SDK'iOS 10.0'(Xcode 8) 引入了 从UIKit独立出来的User NOtification framew
 ####通过时间来有计划的发送本地通知
 大不同：
 
-1.在SDK‘iOS10.0’（Xcode）中，即使app在前台你也可以展示alert、播放声音、增加角标了。
+ 1.在SDK‘iOS10.0’（Xcode）中，即使app在前台你也可以展示alert、播放声音、增加角标了。
 
-2.现在当用户点击或者活动通知时，你可以在一个地方处理上述的任何事件了，甚至是这app被杀掉了。
+ 2.现在当用户点击或者活动通知时，你可以在一个地方处理上述的任何事件了，甚至是这app被杀掉了。
 
-3.支持3DTouch替代手势滑动了。
+ 3.支持3DTouch替代手势滑动了。
 
-4.你现在通过仅仅一行代码就能移除特殊的本地通知。
+ 4.你现在通过仅仅一行代码就能移除特殊的本地通知。
 
 通过OC实现的例子，[iOS10AdaptationTips](https://github.com/ChenYilong/iOS10AdaptationTips)
 
@@ -593,13 +609,21 @@ if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
 
 ```
 
-#### 通过定位有计划的发送本地通知
+#### 通过定位有计划地发送本地通知
 
-如果你的iphone安装了 Foursquare-app(一款国外app类似大众点评)，当你进入或离开某个地理范围你会收到通知。这是怎么实现的呢？
-（？？？？  没下文了 翻译的我有点方）
+如果你的 iPhone 安装了 Foursquare-app(一款国外app类似大众点评)，当你进入或离开某个地理范围你会收到通知。这是怎么实现的呢？
 
+“Trigger”时使用下面的方法就可以:
 
+ ```Objective-C
+@interface UNLocationNotificationTrigger : UNNotificationTrigger
 
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) CLRegion *region;
+
++ (instancetype)triggerWithRegion:(CLRegion *)region repeats:(BOOL)repeats __WATCHOS_PROHIBITED;
+
+@end
+ ```
 
 ###一些小问题
 
@@ -621,59 +645,81 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
 
 打开你工程中名叫`info.plist`的文件，右键点击选择`opening as Source Code`，把下面的代码粘贴进去。或者你可以使用默认的`Property List`打开`info.plist`，点击add按钮，当你输入`Privacy - `Xcode会给你自动补全的建议，用上下键去选择吧。
 
-```objc
- <!-- 🖼 Photo Library -->
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string></string>
+一定要记得在 `<string>` 和 `</string>` 之间写上请求权限的原因，否则可能导致 Apple 审核被拒。
 
+ ```XML
+    <!-- 🖼 Photo Library -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>$(PRODUCT_NAME) photo use</string>
+    
     <!-- 📷 Camera -->
     <key>NSCameraUsageDescription</key>
-    <string></string>
-
+    <string>$(PRODUCT_NAME) camera use</string>
+    
     <!-- 🎤 Microphone -->
     <key>NSMicrophoneUsageDescription</key>
-    <string></string>
-
+    <string>$(PRODUCT_NAME) microphone use</string>
+    
     <!-- 📍 Location -->
     <key>NSLocationUsageDescription</key>
-    <string></string>
-
+    <string>$(PRODUCT_NAME) location use</string>
+    
     <!-- 📍 Location When In Use -->
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string></string>
-
+    <string>$(PRODUCT_NAME) location use</string>
+    
     <!-- 📍 Location Always -->
     <key>NSLocationAlwaysUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) always uses location </string>
 
     <!-- 📆 Calendars -->
     <key>NSCalendarsUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) calendar events</string>
 
     <!-- ⏰ Reminders -->
     <key>NSRemindersUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) reminder use</string>
+    
+    <!-- 📒 Contacts -->
+    <key>NSContactsUsageDescription</key>
+    <string>$(PRODUCT_NAME) contact use</string>
 
     <!-- 🏊 Motion -->
     <key>NSMotionUsageDescription</key>
-    <string></string>
-
+    <string>$(PRODUCT_NAME) motion use</string>
+    
     <!-- 💊 Health Update -->
     <key>NSHealthUpdateUsageDescription</key>
-    <string></string>
-
+    <string>$(PRODUCT_NAME) heath update use</string>
+    
     <!-- 💊 Health Share -->
     <key>NSHealthShareUsageDescription</key>
-    <string></string>
-
+    <string>$(PRODUCT_NAME) heath share use</string>
+    
     <!-- ᛒ🔵 Bluetooth Peripheral -->
     <key>NSBluetoothPeripheralUsageDescription</key>
-    <string></string>
+    <string>$(PRODUCT_NAME) Bluetooth Peripheral use</string>
 
     <!-- 🎵 Media Library -->
     <key>NSAppleMusicUsageDescription</key>
-    <string></string>
-```
+    <string>$(PRODUCT_NAME) media library use</string>
+
+    <!-- 📱 Siri -->
+    <key>NSSiriUsageDescription</key>
+    <string>$(PRODUCT_NAME) siri use</string>
+
+    <!-- 🏡 HomeKit -->
+    <key>NSHomeKitUsageDescription</key>
+    <string>$(PRODUCT_NAME) home kit use</string>
+
+    <!-- 📻 SpeechRecognition -->
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>$(PRODUCT_NAME) speech use</string>
+
+    <!-- 📺 VideoSubscriber -->
+    <key>NSVideoSubscriberAccountUsageDescription</key>
+    <string>$(PRODUCT_NAME) tvProvider use</string>
+ ```
 
 
 如果这样做没起作用，试着去请求后台模式的授权。
