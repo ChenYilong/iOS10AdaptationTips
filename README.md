@@ -43,7 +43,7 @@ I'll introduce the User Notifications framework in two parts:
  1. Local Notification
  2. Romote Notification
 
-### LocalNotification : write everything in on place
+### LocalNotification : write everything in one place
 
 Someone may have the same question with this guy:
 ![enter image description here](http://a65.tinypic.com/2roqpw1.jpg) 
@@ -202,7 +202,7 @@ The list of frameworks that count as private data is a long one:
 
 ![](http://ww4.sinaimg.cn/large/006y8mN6jw1f8wlidzveoj317o0ni40q.jpg)
 
-Remember to write your description why you ask for this authorization, between   `<string> ` and `</string>`, or your app will be rejected by app:
+Remember to write your description why you ask for this authorization, between   `<string> ` and `</string>`, or your app will be rejected by apple:
 
  ```XML
     <!-- 🖼 Photo Library -->
