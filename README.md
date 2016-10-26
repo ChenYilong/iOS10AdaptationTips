@@ -584,9 +584,9 @@ SDK'iOS 10.0'(Xcode 8) 引入了 从UIKit独立出来的User NOtification framew
 
 我将分两个部分介绍这个User Notifications framework:
 
- 1.本地通知
+ 1. 本地通知
 
- 2.远程通知
+ 2. 远程通知
 
 ####本地通知，可以把任何东西写在一个地方。
 
@@ -604,13 +604,13 @@ SDK'iOS 10.0'(Xcode 8) 引入了 从UIKit独立出来的User NOtification framew
 ####通过时间来有计划的发送本地通知
 大不同：
 
- 1.在SDK‘iOS10.0’（Xcode）中，即使app在前台你也可以展示alert、播放声音、增加角标了。
+ 1. 在SDK‘iOS10.0’（Xcode）中，即使app在前台你也可以展示alert、播放声音、增加角标了。
 
- 2.现在当用户点击或者活动通知时，你可以在一个地方处理上述的任何事件了，甚至是这app被杀掉了。
+ 2. 现在当用户点击或者活动通知时，你可以在一个地方处理上述的任何事件了，甚至是这app被杀掉了。
 
- 3.支持3DTouch替代手势滑动了。
+ 3. 支持3DTouch替代手势滑动了。
 
- 4.你现在通过仅仅一行代码就能移除特殊的本地通知。
+ 4. 你现在通过仅仅一行代码就能移除特殊的本地通知。
 
 通过OC实现的例子，[iOS10AdaptationTips](https://github.com/ChenYilong/iOS10AdaptationTips)
 
@@ -758,7 +758,7 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
 
 怎么处理这个问题呢？
 
-打开你工程中名叫`info.plist`的文件，右键点击选择`opening as Source Code`，把下面的代码粘贴进去。或者你可以使用默认的`Property List`打开`info.plist`，点击add按钮，当你输入`Privacy - `Xcode会给你自动补全的建议，用上下键去选择吧。
+打开你工程中名叫 `info.plist` 的文件，右键点击选择 `opening as Source Code`，把下面的代码粘贴进去。或者你可以使用默认的 `Property List` 打开 `info.plist`，点击add按钮，当你输入 `Privacy - ` Xcode会给你自动补全的建议，用上下键去选择吧。
 
 私有数据的框架列表可是个不小的东西：
 
@@ -766,10 +766,8 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
 
 ![](http://ocnhrgfjb.bkt.clouddn.com/image/notification/notification-10.jpeg)
  
-记得把你关于为什么申请授权的描述写进plist的相关key<string>and</string>中间，否则你的app会被拒。
-
-
-
+记得把你关于为什么申请授权的描述写进 plist 相关 key 的 `<string>` 和 `</string>` 中间，否则你的 App 会被拒。
+ 
 
  ```XML
     <!-- 🖼 Photo Library -->
@@ -962,13 +960,16 @@ if #available(iOS 10.0, *) {
 
 
 ####iOS10 Dealing With Untrusted Enterprise Developer
-自从iOS9 企业证书发的包没有信任选项了。
+
+自从 iOS9 企业证书发的包没有信任选项了。
 
 用户必须自己处理信任：去设置-通用-profile-进入你的app的profile-点击信任。
 
-但是iOS10 有一点小的改变。
+但是 iOS10 有一点小的改变。
 
-用户需要去 设置-通用-设备管理-进入你app的profile-点击信任按钮。
+用户需要去 
+
+设置->通用->设备管理->进入你app的profile->点击信任按钮。
 
 ![](http://ocnhrgfjb.bkt.clouddn.com/image/notification/notification-11.gif)
 
