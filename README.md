@@ -542,6 +542,7 @@ Reference:[***Efficient iOS Version Checking***](https://pspdfkit.com/blog/2016/
 
 ###Notification
 
+
 ####User Notifications : both a new and old framework
 
 如果你使用如下的命令对比SDK‘iOS10.0’(Xcode8)和SDK‘iOS9.0’的不同，你会发现有6个UIKit类关联通知的类在SDK‘iOS10.0’(Xcode8)废弃了。
@@ -756,11 +757,27 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
 在你访问照相机、通讯录、等等隐私以及敏感数据之前，你必须请求授权。否则你的app会在你尝试访问这些隐私时崩溃。Xcode会log这些：
 >This app has crashed because it attempted to access privacy-sensitive data without a usage description. The app's Info.plist must contain an NSContactsUsageDescription key with a string value explaining to the user how the app uses this data.
 
-怎么处理这个问题呢？
+怎么处理这个问题呢？就像苹果说的:
+> 你必须通过添加这些keys到你的info.plist，静态的声明你的app需要使用这些受保护的隐私数据。
 
 打开你工程中名叫`info.plist`的文件，右键点击选择`opening as Source Code`，把下面的代码粘贴进去。或者你可以使用默认的`Property List`打开`info.plist`，点击add按钮，当你输入`Privacy - `Xcode会给你自动补全的建议，用上下键去选择吧。
 
+<<<<<<< HEAD
+私有数据的框架列表可是个不小的东西：
+
+> 通讯录 日历 提醒 照片 蓝牙共享 耳机 相机 定位 健康 homeKit 多媒体库 运动 callKit 语音识别 SiriKit TV Provider
+
+![](http://ocnhrgfjb.bkt.clouddn.com/image/notification/notification-10.jpeg)
+ 
+记得把你关于为什么申请授权的描述写进plist的相关key<string>and</string>中间，否则你的app会被拒。
+
+```objc
+     <!-- 🖼 Photo Library -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>$(PRODUCT_NAME) photo use</string>
+=======
 一定要记得在 `<string>` 和 `</string>` 之间写上请求权限的原因，否则可能导致 Apple 审核被拒。
+>>>>>>> ChenYilong/master
 
  ```XML
     <!-- 🖼 Photo Library -->
@@ -770,6 +787,21 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
     <!-- 📷 Camera -->
     <key>NSCameraUsageDescription</key>
     <string>$(PRODUCT_NAME) camera use</string>
+<<<<<<< HEAD
+
+    <!-- 🎤 Microphone -->
+    <key>NSMicrophoneUsageDescription</key>
+    <string>$(PRODUCT_NAME) microphone use</string>
+
+    <!-- 📍 Location -->
+    <key>NSLocationUsageDescription</key>
+    <string>$(PRODUCT_NAME) location use</string>
+
+    <!-- 📍 Location When In Use -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>$(PRODUCT_NAME) location use</string>
+
+=======
     
     <!-- 🎤 Microphone -->
     <key>NSMicrophoneUsageDescription</key>
@@ -783,6 +815,7 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>$(PRODUCT_NAME) location use</string>
     
+>>>>>>> ChenYilong/master
     <!-- 📍 Location Always -->
     <key>NSLocationAlwaysUsageDescription</key>
     <string>$(PRODUCT_NAME) always uses location </string>
@@ -794,7 +827,11 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
     <!-- ⏰ Reminders -->
     <key>NSRemindersUsageDescription</key>
     <string>$(PRODUCT_NAME) reminder use</string>
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> ChenYilong/master
     <!-- 📒 Contacts -->
     <key>NSContactsUsageDescription</key>
     <string>$(PRODUCT_NAME) contact use</string>
@@ -802,6 +839,17 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
     <!-- 🏊 Motion -->
     <key>NSMotionUsageDescription</key>
     <string>$(PRODUCT_NAME) motion use</string>
+<<<<<<< HEAD
+
+    <!-- 💊 Health Update -->
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>$(PRODUCT_NAME) heath update use</string>
+
+    <!-- 💊 Health Share -->
+    <key>NSHealthShareUsageDescription</key>
+    <string>$(PRODUCT_NAME) heath share use</string>
+
+=======
     
     <!-- 💊 Health Update -->
     <key>NSHealthUpdateUsageDescription</key>
@@ -811,6 +859,7 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
     <key>NSHealthShareUsageDescription</key>
     <string>$(PRODUCT_NAME) heath share use</string>
     
+>>>>>>> ChenYilong/master
     <!-- ᛒ🔵 Bluetooth Peripheral -->
     <key>NSBluetoothPeripheralUsageDescription</key>
     <string>$(PRODUCT_NAME) Bluetooth Peripheral use</string>
@@ -834,7 +883,11 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
     <!-- 📺 VideoSubscriber -->
     <key>NSVideoSubscriberAccountUsageDescription</key>
     <string>$(PRODUCT_NAME) tvProvider use</string>
+<<<<<<< HEAD
+```
+=======
  ```
+>>>>>>> ChenYilong/master
 
 
 如果这样做没起作用，试着去请求后台模式的授权。
@@ -848,9 +901,13 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
 ```
 
 或者去 `target -> Capabilities -> Background Modes -> open the background Modes`
-
+n
 ![](http://ocnhrgfjb.bkt.clouddn.com/image/notification/pic-1.png)
 然后clean你的工程，run起来。
+Reference:
+
+[WWDC 2016 Session 709 Engineering Privacy for Your Users](https://developer.apple.com/videos/play/wwdc2016/709/)
+[Full list of Info.plist keys](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html)
 
 
 #### 你可以在Xib或Storyboard同时使用AutoresizingMask和Autolayout Constraints布局
@@ -868,7 +925,7 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
 @property(nonatomic) BOOL translatesAutoresizingMaskIntoConstraints NS_AVAILABLE_IOS(6_0); // Default YES
 @end
 ```
-但是现在Xcode可以帮你把AutoresizingMask代码转换成Constraints，所以你可以在Xib或Storyboard中同时使用AutoresizingMask和Autolayout Constraints。
+但是现在Xcode8可以帮你把AutoresizingMask代码转换成Constraints，所以你可以在Xib或Storyboard中同时使用AutoresizingMask和Autolayout Constraints。
 
 #### iOS 版本检查
 
@@ -946,6 +1003,18 @@ if #available(iOS 10.0, *) {
     // Fallback on earlier versions
 }
 ```
+
+####iOS10 Dealing With Untrusted Enterprise Developer
+自从iOS9 企业证书发的包没有信任选项了。
+
+用户必须自己处理信任：去设置-通用-profile-进入你的app的profile-点击信任。
+
+但是iOS10 有一点小的改变。
+
+用户需要去 设置-通用-设备管理-进入你app的profile-点击信任按钮。
+
+![](http://ocnhrgfjb.bkt.clouddn.com/image/notification/notification-11.gif)
+
 
 Reference:[Efficient iOS Version Checking](https://pspdfkit.com/blog/2016/efficient-iOS-version-checking/)
 
