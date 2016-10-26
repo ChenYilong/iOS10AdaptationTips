@@ -62,9 +62,56 @@ Big Diff:
  4. Now you can remove specifical local notification just by one row code.
  5. Support Rich Notification with custom UI. 
 
-sample use with Objective-C implemation:
 
 I write a Demo here:  [**iOS10AdaptationTips**](https://github.com/ChenYilong/iOS10AdaptationTips) .
+
+
+With Swift implemation:
+
+ 1. import UserNotifications
+
+
+        ///    Notification become independent from UIKit
+        @import UserNotifications;
+
+
+ 2. request authorization for localNotification
+
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+                // Enable or disable features based on authorization.
+            }
+
+
+ 3. schedule localNotification
+ 4. update application icon badge number
+
+        @IBAction  func triggerNotification(){
+            let content = UNMutableNotificationContent()
+            content.title = NSString.localizedUserNotificationString(forKey: "Elon said:", arguments: nil)
+            content.body = NSString.localizedUserNotificationString(forKey: "Hello Tom！Get up, let's play with Jerry!", arguments: nil)
+            content.sound = UNNotificationSound.default()
+            content.badge = UIApplication.shared().applicationIconBadgeNumber + 1;
+            content.categoryIdentifier = "com.elonchan.localNotification"
+            // Deliver the notification in five seconds.
+            let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60.0, repeats: true)
+            let request = UNNotificationRequest.init(identifier: "FiveSecond", content: content, trigger: trigger)
+        
+            // Schedule the notification.
+            let center = UNUserNotificationCenter.current()
+            center.add(request)
+        }
+
+        @IBAction func stopNotification(_ sender: AnyObject) {
+            let center = UNUserNotificationCenter.current()
+            center.removeAllPendingNotificationRequests()
+            // or you can remove specifical notification:
+            // center.removePendingNotificationRequests(withIdentifiers: ["FiveSecond"])
+        }
+
+
+With Objective-C implemation:
+
 
  1. import UserNotifications
 
@@ -101,7 +148,7 @@ I write a Demo here:  [**iOS10AdaptationTips**](https://github.com/ChenYilong/iO
             content.sound = [UNNotificationSound defaultSound];
             
             /// 4. update application icon badge number
-            content.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] + 1);
+            content.badge = NSNumber(integerLiteral: UIApplication.shared.applicationIconBadgeNumber + 1);
             // Deliver the notification in five seconds.
             UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger
                                                           triggerWithTimeInterval:5.f repeats:NO];
@@ -114,6 +161,17 @@ I write a Demo here:  [**iOS10AdaptationTips**](https://github.com/ChenYilong/iO
                     NSLog(@"add NotificationRequest succeeded!");
                 }
             }];
+
+
+Go to here for more information:  [**iOS10AdaptationTips**](https://github.com/ChenYilong/iOS10AdaptationTips) .
+
+**updated:**
+
+Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'time interval must be at least 60 if repeating'
+
+    let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: true)
+
+
 
 then it will appear like this:
 
@@ -164,6 +222,63 @@ By the way, you can use this code to check Xcode Version:
  ```Objective-C
 #define XCODE_VERSION_GREATER_THAN_OR_EQUAL_TO_8    __has_include(<UserNotifications/UserNotifications.h>)
  ```
+
+###Remote Push Notification
+
+It's really samilar with Local Notification:
+
+Reigster method may be the biggist different:
+
+I'll show how to register with Objective-C method:
+
+
+       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+            [self registerForRemoteNotification];
+            . . .
+        }
+
+
+        - (void)registerForRemoteNotification {
+            if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+                UNUserNotificationCenter *uncenter = [UNUserNotificationCenter currentNotificationCenter];
+                [uncenter setDelegate:self];
+                [uncenter requestAuthorizationWithOptions:(UNAuthorizationOptionAlert+UNAuthorizationOptionBadge+UNAuthorizationOptionSound)
+                                        completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                                            [[UIApplication sharedApplication] registerForRemoteNotifications];
+                                            NSLog(@"%@" , granted ? @"success to request authorization." : @"failed to request authorization .");
+                                        }];
+                [uncenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+                    NSLog(@"%s\nline:%@\n-----\n%@\n\n", __func__, @(__LINE__), settings);
+                    if (settings.authorizationStatus == UNAuthorizationStatusNotDetermined) {
+                        //TODO:
+                    } else if (settings.authorizationStatus == UNAuthorizationStatusDenied) {
+                        //TODO:
+                    } else if (settings.authorizationStatus == UNAuthorizationStatusAuthorized) {
+                        //TODO:
+                    }
+                }];
+            }
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+                UIUserNotificationType types = UIUserNotificationTypeAlert |
+                                               UIUserNotificationTypeBadge |
+                                               UIUserNotificationTypeSound;
+                UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+
+                [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+            } else {
+                UIRemoteNotificationType types = UIRemoteNotificationTypeBadge |
+                                                 UIRemoteNotificationTypeAlert |
+                                                 UIRemoteNotificationTypeSound;
+                [[UIApplication sharedApplication] registerForRemoteNotificationTypes:types];
+            }
+        #pragma clang diagnostic pop
+        }
+
+
+Here is a demo: [iOS10AdaptationTips](https://github.com/ChenYilong/iOS10AdaptationTips/stargazers).
 
 #### schedule the delivery of local notifications based on location
 
