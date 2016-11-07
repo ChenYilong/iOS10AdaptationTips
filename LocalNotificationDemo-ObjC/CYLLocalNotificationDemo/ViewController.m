@@ -40,11 +40,8 @@ static NSString *const CYLInviteCategoryIdentifier = @"com.elonchan.localNotific
         NSArray *notificationActions = @[ acceptAction, declineAction, snoozeAction ];
         
         // create a category
-        UNNotificationCategory *inviteCategory = [UNNotificationCategory categoryWithIdentifier:CYLInviteCategoryIdentifier
-                                                                                        actions:notificationActions
-                                                                                 minimalActions:notificationActions
-                                                                              intentIdentifiers:@[]
-                                                                                        options:UNNotificationCategoryOptionCustomDismissAction];
+        UNNotificationCategory *inviteCategory = [UNNotificationCategory categoryWithIdentifier:CYLInviteCategoryIdentifier actions:notificationActions intentIdentifiers:@[] options:UNNotificationCategoryOptionCustomDismissAction];
+        
         NSSet *categories = [NSSet setWithObject:inviteCategory];
         
          // registration
@@ -115,8 +112,9 @@ static NSString *const CYLInviteCategoryIdentifier = @"com.elonchan.localNotific
         content.badge = @([[UIApplication sharedApplication] applicationIconBadgeNumber] + 1);
         content.launchImageName = @"any string is ok,such as 微博@iOS程序犭袁";
         // Deliver the notification in five seconds.
+        //*** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'time interval must be at least 60 if repeating'
         UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger
-                                                      triggerWithTimeInterval:5.f repeats:YES];
+                                                      triggerWithTimeInterval:60.0f repeats:YES];
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"FiveSecond"
                                                                               content:content trigger:trigger];
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
