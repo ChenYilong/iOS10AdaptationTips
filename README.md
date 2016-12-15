@@ -975,9 +975,32 @@ if #available(iOS 10.0, *) {
 
 Reference:[Efficient iOS Version Checking](https://pspdfkit.com/blog/2016/efficient-iOS-version-checking/)
 
+#### 更多系统对象的 delegate 属性变更，其内存管理语义关键字由 assign 改为了 weak
 
+近年来 iOS-SDK 的 API 设计更加“接地气”，Apple 开始吸取社区中的一些最佳实践：比如尽量避免使用 atomic，delegate 设置为 weak，
 
+iOS9时，Apple 开始将众多系统类的 delegate 和 dataSource 的修饰符从 assign 改为了weak， 其中就包括 UITableView 。
 
+![](http://ww2.sinaimg.cn/large/006tNbRwjw1farfr5fgwyj30lp09qtaw.jpg)
+
+也就是说，在 iOS9之前，我们遇到由于生命周期引起的一些 bug 时，时常的解决方法是在 dealloc 中调用 `[systemClassInstance setDelegate:nil]` 来释放 delegate。于是在 dealloc 中设置系统对象的 delegate 为 nil，一度成为了“经验”。
+
+在 iOS10 里 Apple 依然在逐步地践行这一系列的最佳实践，
+iOS10-SDK 中 Apple 重写了很多系统对象的 delegate，将默认的 assign 改为了 weak，比如：UITabBar、UIToolbar 等等，这意味着使用 iOS10-SDK 且采用 Xcode8 编译的项目在 dealloc 中就不必使用 `[systemClassInstance setDelegate:nil]` 来释放delegate。
+
+![](http://ww2.sinaimg.cn/large/006tNbRwjw1farfieleatj30ic09rabz.jpg)
+
+![](http://ww4.sinaimg.cn/large/006tNbRwjw1farfieaxn7j30i305tjsa.jpg)
+
+各位现在可以到自己项目中，将这些 `[systemClassInstance setDelegate:nil]` 遗留代码清除掉。
+
+值得注意的是：以上论述皆基于 ARC 项目，MRC项目还是需要将 delegate 手动置 nil。
+
+可以参考 ： 
+
+ 1.  [**iOS9 API 变动官方文档**]( https://developer.apple.com/library/content/releasenotes/General/iOS90APIDiffs/Objective-C/UIKit.html ) 
+ 2. [**iOS10 API 变动官方文档**]( https://developer.apple.com/library/content/releasenotes/General/iOS10APIDiffs/ ) 
+ 3. [**ARC Enforces New Rules**]( https://developer.apple.com/library/content/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226-CH1-SW14 ) 
 
 学习交流群：561873398
 
