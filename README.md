@@ -41,7 +41,7 @@ Also introduced in SDK 'iOS 10.0'(Xcode 8) , the User Notifications UI framework
 
 I'll introduce the User Notifications framework in two parts:
  1. Local Notification
- 2. Romote Notification
+ 2. Remote Notification
 
 ### LocalNotification : write everything in one place
 
