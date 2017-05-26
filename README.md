@@ -417,7 +417,7 @@ If it does not works, try to ask for the the background authorization:
 
 Or go to `target -> Capabilities -> Background Modes -> open the background Modes`:
 
-![enter image description here](https://ws3.sinaimg.cn/large/006tNc79gy1ffyyns3r3gj31ao0kon09.jpg)
+![enter image description here](https://ws2.sinaimg.cn/large/006tNc79ly1ffyz4012usj31kw0rzahk.jpg)
 
 then clean your Project, run it.
 Reference:
@@ -855,7 +855,7 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
 
 或者去 `target -> Capabilities -> Background Modes -> open the background Modes`
 
-![enter image description here](https://ws3.sinaimg.cn/large/006tNc79gy1ffyyns3r3gj31ao0kon09.jpg)
+![enter image description here](https://ws2.sinaimg.cn/large/006tNc79ly1ffyz4012usj31kw0rzahk.jpg)
 
 然后clean你的工程，run起来。
 
