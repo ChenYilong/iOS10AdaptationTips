@@ -1,8 +1,7 @@
 # iOS10AdaptationTips
 
-<p align="center">
-[![Codewake](https://www.codewake.com/badges/ask_question.svg)](https://www.codewake.com/p/ios10adaptationtips)
-</a>
+
+<p align="center"><a href="https://twitter.com/stevechen1010"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&maxAge=2592000"></a><a href="http://weibo.com/luohanchenyilong"><img src="http://i67.tinypic.com/wbulbr.jpg"></a></a>
 
 Reference:[**iOS9AdaptationTips**]( https://github.com/ChenYilong/iOS9AdaptationTips ).
 
@@ -418,7 +417,7 @@ If it does not works, try to ask for the the background authorization:
 
 Or go to `target -> Capabilities -> Background Modes -> open the background Modes`:
 
-![enter image description here](http://cdn2.raywenderlich.com/wp-content/uploads/2014/12/background_modes.png)
+![enter image description here](https://ws3.sinaimg.cn/large/006tNc79gy1ffyyns3r3gj31ao0kon09.jpg)
 
 then clean your Project, run it.
 Reference:
@@ -856,7 +855,8 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
 
 或者去 `target -> Capabilities -> Background Modes -> open the background Modes`
 
-![](http://ocnhrgfjb.bkt.clouddn.com/image/notification/pic-1.png)
+![enter image description here](https://ws3.sinaimg.cn/large/006tNc79gy1ffyyns3r3gj31ao0kon09.jpg)
+
 然后clean你的工程，run起来。
 
 Reference:
@@ -1005,3 +1005,5 @@ iOS10-SDK 中 Apple 重写了很多系统对象的 delegate，将默认的 assig
 学习交流群：561873398
 
 相关链接： [《iOS9适配系列教程》]( https://github.com/ChenYilong/iOS9AdaptationTips) 。
+
+
