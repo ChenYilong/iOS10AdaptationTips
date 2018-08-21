@@ -334,7 +334,11 @@ Remember to write your description why you ask for this authorization, between  
     <!-- 🖼 Photo Library -->
     <key>NSPhotoLibraryUsageDescription</key>
     <string>$(PRODUCT_NAME) photo use</string>
-    
+     
+    <!-- 🖼 Photo Library -->
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>$(PRODUCT_NAME) photo use</string>
+
     <!-- 📷 Camera -->
     <key>NSCameraUsageDescription</key>
     <string>$(PRODUCT_NAME) camera use</string>
@@ -771,6 +775,10 @@ Reference:[Security and Privacy Enhancements](https://developer.apple.com/librar
  ```XML
     <!-- 🖼 Photo Library -->
     <key>NSPhotoLibraryUsageDescription</key>
+    <string>$(PRODUCT_NAME) photo use</string>
+ 
+    <!-- 🖼 Photo Library -->
+    <key>NSPhotoLibraryAddUsageDescription</key>
     <string>$(PRODUCT_NAME) photo use</string>
 
     <!-- 📷 Camera -->
